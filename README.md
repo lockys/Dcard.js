@@ -1,4 +1,4 @@
-# Dcard Parder
+# DcardJS
 ```
 _____                    _   _____
 |  __ \                  | | |  __ \
@@ -10,6 +10,11 @@ _____                    _   _____
 ```
 Simple Dcard API Parser for nodeJS
 Alpha edition @ 2015/06/25  
+
+
+Dcard API list
+============
+Please, see the [Wiki page](https://github.com/lockys/Dcard-Parser/wiki)
 
 
 Contributors
