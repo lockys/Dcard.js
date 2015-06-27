@@ -1,5 +1,5 @@
 {
-  "name": "dcardParser",
+  "name": "dcard",
   "version": "1.0.0",
   "description": "",
   "main": "parser.js",
@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
+  "contributors": [{
+      "name": "John Lin",
+      "email": "linton.tw@gmail.com"
+      }],
   "license": "MIT",
   "dependencies": {
     "get-urls": "^5.0.0",
