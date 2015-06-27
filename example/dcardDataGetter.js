@@ -1,16 +1,16 @@
-// Demo program for Dcard parser.
+// Demo program for Dcard data retriever.
 // Author: John-Lin(https://github.com/John-Lin), lockys(https://github.com/lockys)
 // For all forum name refer to:
 // https://github.com/lockys/0card/blob/master/dacrdAPI.md#forum-list
-var DcardPaser = require('./lib/dard-parser');
-dcardPaser = new DcardPaser();
+var DcardJS = require('../index');
+dcardDataGetter = new DcardJS();
 /**
  * Get Dcard Posts ID by forum name and forum page number
  * @param {String} forum name
  * @param {Number} forum page number
  * @return {Number} post ID Number
  */
-dcardPaser.getPostIdByForum ('sex', 3, function(err, postID) {
+dcardDataGetter.getPostIdByForum ('sex', 3, function(err, postID) {
   if (!err) {
     console.log('Post id: ' + postID);
   } else {
@@ -23,7 +23,7 @@ dcardPaser.getPostIdByForum ('sex', 3, function(err, postID) {
  * @param {Number} post id
  * @return {String} title, content of post.
  */
-dcardPaser.getContentByPostID(328484, function(err, post) {
+dcardDataGetter.getContentByPostID(328484, function(err, post) {
   if (!err) {
     // console.log(post);
     console.log('Title: ' + post.title);
@@ -38,7 +38,7 @@ dcardPaser.getContentByPostID(328484, function(err, post) {
  * @param {Number} forum page number
  * @return {Number} post ID Number
  */
-dcardPaser.getHotPostId(1, function(err, postID) {
+dcardDataGetter.getHotPostId(1, function(err, postID) {
   if (!err) {
     console.log('Hot Post id: ' + postID);
   } else {
@@ -53,7 +53,7 @@ dcardPaser.getHotPostId(1, function(err, postID) {
  * @return {Number} post ID Number
  */
 
-dcardPaser.getHotPostIdByForum('funny', 1, function(err, postID) {
+dcardDataGetter.getHotPostIdByForum('funny', 1, function(err, postID) {
   if (!err) {
     console.log('Hot Post id by forum: ' + postID);
   } else {

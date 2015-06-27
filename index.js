@@ -1,14 +1,14 @@
 var request = require('request');
 var url = require('url');
 
-function DcardPaser() {
+function DcardJS() {
   this.FORUM_API = 'https://www.dcard.tw/api/forum/';
   this.POST_CONTENT_API = 'https://www.dcard.tw/api/post/all/';
 
   this.POST_URL = 'https://www.dcard.tw/f/all/p/';
 }
 
-DcardPaser.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
+DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
 
   if (!isValidInput(pageNum)) {
     callback(new Error('Page number must be positive integer.'));
@@ -43,7 +43,7 @@ DcardPaser.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
   }
 }
 
-DcardPaser.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
+DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
 
   if (!isValidInput(pageNum)) {
     callback(new Error('Page number must be positive integer.'));
@@ -78,7 +78,7 @@ DcardPaser.prototype.getHotPostIdByForum = function(forumName, pageNum, callback
   }
 }
 
-DcardPaser.prototype.getContentByPostID = function(postID, callback) {
+DcardJS.prototype.getContentByPostID = function(postID, callback) {
 
   if (!isValidInput(postID)) {
     callback(new Error('Page number must be positive integer.'));
@@ -102,7 +102,7 @@ DcardPaser.prototype.getContentByPostID = function(postID, callback) {
   });
 }
 
-DcardPaser.prototype.getHotPostId = function(pageNum, callback) {
+DcardJS.prototype.getHotPostId = function(pageNum, callback) {
 
   if (!isValidInput(pageNum)) {
     callback(new Error('Page number must be positive integer.'));
@@ -144,4 +144,4 @@ function isValidInput(pageNum) {
   return true;
 }
 
-module.exports = DcardPaser;
+module.exports = DcardJS;

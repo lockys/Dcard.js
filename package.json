@@ -1,15 +1,31 @@
 {
-  "name": "dcardParser",
+  "name": "dcardJS",
   "version": "1.0.0",
-  "description": "",
-  "main": "parser.js",
+  "description":"Simple data retriever of Dcard for nodeJS",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
+  "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",]
   "license": "MIT",
   "dependencies": {
     "get-urls": "^5.0.0",
     "request": "^2.58.0"
-  }
+  },
+  "directories": {
+    "doc": "doc"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lockys/DcardJS.git"
+  },
+  "keywords": [
+    "dcard",
+    "retriever"
+  ],
+  "bugs": {
+    "url": "https://github.com/lockys/DcardJS/issues"
+  },
+  "homepage": "https://github.com/lockys/DcardJS"
 }
