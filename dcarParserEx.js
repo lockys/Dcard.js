@@ -25,7 +25,38 @@ dcardPaser.getPostIdByForum ('sex', 3, function(err, postID) {
  */
 dcardPaser.getContentByPostID(328484, function(err, post) {
   if (!err) {
-    console.log('title: ' + post.title);
-    console.log('content: ' + post.content);
+    // console.log(post);
+    console.log('Title: ' + post.title);
+    console.log('Content: ' + post.content);
+    console.log('URL:' + post.url);
+
+  }
+});
+
+/**
+ * Get Dcard Hot Posts ID by forum page number
+ * @param {Number} forum page number
+ * @return {Number} post ID Number
+ */
+dcardPaser.getHotPostId(1, function(err, postID) {
+  if (!err) {
+    console.log('Hot Post id: ' + postID);
+  } else {
+    console.log(err);
+  }
+});
+
+/**
+ * Get Dcard Hot Posts ID by forum name and forum page number
+ * @param {String} forum name
+ * @param {Number} forum page number
+ * @return {Number} post ID Number
+ */
+
+dcardPaser.getHotPostIdByForum('funny', 1, function(err, postID) {
+  if (!err) {
+    console.log('Hot Post id by forum: ' + postID);
+  } else {
+    console.log(err);
   }
 });
