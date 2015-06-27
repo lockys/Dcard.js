@@ -10,3 +10,9 @@ _____                    _   _____
 ```
 Simple Dcard API Parser for nodeJS
 Alpha edition @ 2015/06/25  
+
+
+Contributors
+============
+[lockys](https://github.com/lockys)
+[John-Lin](https://github.com/John-Lin)
