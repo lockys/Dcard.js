@@ -4,10 +4,15 @@ var url = require('url');
 function DcardJS() {
   this.FORUM_API = 'https://www.dcard.tw/api/forum/';
   this.POST_CONTENT_API = 'https://www.dcard.tw/api/post/all/';
-
   this.POST_URL = 'https://www.dcard.tw/f/all/p/';
 }
 
+/**
+ * Get Dcard Posts ID by forum name and forum page number
+ * @param {String} forum name
+ * @param {Number} forum page number
+ * @return {Number} post ID Number
+ */
 DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
 
   if (!isValidInput(pageNum)) {
@@ -43,6 +48,12 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
   }
 }
 
+/**
+ * Get Dcard Hot Posts ID by forum name and forum page number
+ * @param {String} forum name
+ * @param {Number} forum page number
+ * @return {Number} post ID Number
+ */
 DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
 
   if (!isValidInput(pageNum)) {
@@ -70,7 +81,7 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
       var postJson = JSON.parse(body);
       for (var j = 0, postLen = postJson.length; j < postLen; j++) {
         var postID = postJson[j].id;
-        callback(null, postID);
+        callback(null, {postID: postID});
 
         //console.log(postJson[j].id);
       }
@@ -78,6 +89,11 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
   }
 }
 
+/**
+ * Get Dcard Posts title and content
+ * @param {Number} post id
+ * @return {String} title, content of post, comments of post, post URL
+ */
 DcardJS.prototype.getContentByPostID = function(postID, callback) {
 
   if (!isValidInput(postID)) {
@@ -102,6 +118,12 @@ DcardJS.prototype.getContentByPostID = function(postID, callback) {
   });
 }
 
+/**
+ * Get Dcard Hot Posts ID by forum name and forum page number
+ * @param {String} forum name
+ * @param {Number} forum page number
+ * @return {Number} post ID Number
+ */
 DcardJS.prototype.getHotPostId = function(pageNum, callback) {
 
   if (!isValidInput(pageNum)) {
@@ -128,7 +150,7 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
       var postJson = JSON.parse(body);
       for (var j = 0, postLen = postJson.length; j < postLen; j++) {
         var postID = postJson[j].id;
-        callback(null, postID);
+        callback(null, {postID: postID});
 
         //console.log(postJson[j].id);
       }
