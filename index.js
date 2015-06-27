@@ -46,7 +46,7 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
       }
     }
   }
-}
+};
 
 /**
  * Get Dcard Hot Posts ID by forum name and forum page number
@@ -61,7 +61,7 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
     return false;
   }
 
-  var hotPath = forumName + '/' + pageNum.toString() + '/popular'
+  var hotPath = forumName + '/' + pageNum.toString() + '/popular';
   var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
 
   for (var i = 1; i <= pageNum; i++) {
@@ -87,7 +87,7 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
       }
     }
   }
-}
+};
 
 /**
  * Get Dcard Posts title and content
@@ -116,7 +116,7 @@ DcardJS.prototype.getContentByPostID = function(postID, callback) {
                       url: postURL});
     }
   });
-}
+};
 
 /**
  * Get Dcard Hot Posts ID by forum name and forum page number
@@ -131,7 +131,7 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
     return false;
   }
 
-  var hotPath = 'all/' + pageNum.toString() + '/popular'
+  var hotPath = 'all/' + pageNum.toString() + '/popular';
   var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
 
   for (var i = 1; i <= pageNum; i++) {
@@ -156,10 +156,10 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
       }
     }
   }
-}
+};
 
 function isValidInput(pageNum) {
-  if (!(pageNum === parseInt(pageNum, 10))) {
+  if (pageNum !== parseInt(pageNum, 10)) {
     return false;
   }
 
