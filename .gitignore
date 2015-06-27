@@ -1,0 +1,8 @@
+# modules
+node_modules
+bin
+
+# files
+images
+.DS_Store
+s3Key
