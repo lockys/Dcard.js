@@ -2,7 +2,7 @@
 // Author: John-Lin(https://github.com/John-Lin), lockys(https://github.com/lockys)
 // For all forum name refer to:
 // https://github.com/lockys/0card/blob/master/dacrdAPI.md#forum-list
-var DcardPaser = require('./lib/dard-parser');
+var DcardPaser = require('./lib/dcard');
 dcardPaser = new DcardPaser();
 /**
  * Get Dcard Posts ID by forum name and forum page number
