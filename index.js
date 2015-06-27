@@ -79,12 +79,17 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
       }
 
       var postJson = JSON.parse(body);
-      for (var j = 0, postLen = postJson.length; j < postLen; j++) {
-        var postID = postJson[j].id;
-        callback(null, {postID: postID});
+      var sortedPostId = [];
 
-        //console.log(postJson[j].id);
-      }
+      (function syncPostID(x) {
+        if (x < postJson.length) {
+          var postID = postJson[x].id;
+          sortedPostId.push(postID);
+          syncPostID(x + 1);
+        }
+      })(0);
+
+      callback(null, {postIdList: sortedPostId});
     }
   }
 };
@@ -148,12 +153,17 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
       }
 
       var postJson = JSON.parse(body);
-      for (var j = 0, postLen = postJson.length; j < postLen; j++) {
-        var postID = postJson[j].id;
-        callback(null, {postID: postID});
+      var sortedPostId = [];
 
-        //console.log(postJson[j].id);
-      }
+      (function syncPostID(x) {
+        if (x < postJson.length) {
+          var postID = postJson[x].id;
+          sortedPostId.push(postID);
+          syncPostID(x + 1);
+        }
+      })(0);
+
+      callback(null, {postIdList: sortedPostId});
     }
   }
 };
