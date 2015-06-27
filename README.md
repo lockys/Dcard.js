@@ -7,7 +7,7 @@
    \/____/   \/_____/   \/_/\/_/   \/_/ /_/   \/____/ \/_____/   \/_____/
                                                                         
 ```
-Simple Dcard API Parser for nodeJS
+Simple data retriever of Dcard for nodeJS
 Alpha edition @ 2015/06/25  
 
 
