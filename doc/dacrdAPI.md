@@ -5,6 +5,7 @@
 ## Post list
 
 - [Post API](#post)
+- [Hot Post API](#hot-post)
 
 ## Forum list
 
@@ -36,6 +37,9 @@
 
 Post API: `GET https://www.dcard.tw/api/post/all/<Post-ID>`
 
+### Hot Post
+
+Post API: `GET https://www.dcard.tw/api/forum/all/<Page-Number>/popular`
 
 ### Forum name: 全部
 
