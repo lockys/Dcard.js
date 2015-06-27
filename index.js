@@ -1,5 +1,6 @@
 var request = require('request');
 var url = require('url');
+var isValidInput = require('./lib/helper').isValidInput;
 
 function DcardJS() {
   this.FORUM_API = 'https://www.dcard.tw/api/forum/';
@@ -167,13 +168,5 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
     }
   }
 };
-
-function isValidInput(pageNum) {
-  if (pageNum !== parseInt(pageNum, 10)) {
-    return false;
-  }
-
-  return true;
-}
 
 module.exports = DcardJS;
