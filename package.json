@@ -1,5 +1,5 @@
 {
-  "name": "dcardJS",
+  "name": "dcardjs",
   "version": "1.0.0",
   "description": "Simple data retriever of Dcard for nodeJS",
   "main": "index.js",
