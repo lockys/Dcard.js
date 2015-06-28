@@ -67,14 +67,14 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
   // Prepare for request URLs
   var reqURLArray = [];
   for (var i = 1; i <= pageNum; i++) {
-    var hotPath = forumName + '/' + i.toString() + '/popular'
+    var hotPath = forumName + '/' + i.toString() + '/popular';
     var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
     reqURLArray.push(hotPostAPI);
   }
 
   async.map(reqURLArray, request.get, function(err, results) {
     if (err) {
-      console.log(e);
+      console.log(err);
     }
 
     var postIdArr = [];
@@ -136,14 +136,14 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
   // Prepare for request URLs
   var reqURLArray = [];
   for (var i = 1; i <= pageNum; i++) {
-    var hotPath = 'all/' + i.toString() + '/popular'
+    var hotPath = 'all/' + i.toString() + '/popular';
     var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
     reqURLArray.push(hotPostAPI);
   }
 
   async.map(reqURLArray, request.get, function(err, results) {
     if (err) {
-      console.log(e);
+      console.log(err);
     }
 
     var postIdArr = [];

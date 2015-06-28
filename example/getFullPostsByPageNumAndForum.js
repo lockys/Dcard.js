@@ -11,7 +11,7 @@ var dcardDataGetter = new DcardJS();
  * @return {String} title, content of post.
  */
 
-dcardDataGetter.getFullPostsByPageNumAndForum(4, 'sex', 'DEFAULT', function(err, postList) {
+dcardDataGetter.getFullPostsByPageNumAndForum(5, 'sex', 'HOT_WITH_FORUM', function(err, postList) {
   if (!err) {
     console.log('[*]' + postList.length + ' posts');
     for (var i = 0, len = postList.length; i < len; i++) {
