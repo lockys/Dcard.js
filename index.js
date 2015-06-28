@@ -59,6 +59,36 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
  */
 DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
 
+  if (!isValidInput(pageNum)) {
+    callback(new Error('Page number must be positive integer.'));
+    return false;
+  }
+
+  // Prepare for request URLs
+  var reqURLArray = [];
+  for (var i = 1; i <= pageNum; i++) {
+    var hotPath = forumName + '/' + i.toString() + '/popular'
+    var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
+    reqURLArray.push(hotPostAPI);
+  }
+
+  async.map(reqURLArray, request.get, function(err, results) {
+    if (err) {
+      console.log(e);
+    }
+
+    var postIdArr = [];
+    for (var i = 0, resultsLen = results.length; i < resultsLen; i++) {
+      var postJson = JSON.parse(results[i].body);
+      for (var j = 0, postLen = postJson.length; j < postLen; j++) {
+        var postID = postJson[j].id;
+        postIdArr.push(postID);
+      }
+    }
+
+    callback(null, postIdArr);
+  });
+
 };
 
 /**
