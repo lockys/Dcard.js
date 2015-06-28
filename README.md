@@ -10,7 +10,7 @@
 Usage
 ======
 ```
-$ npm install dcardjs
+$ npm install dcard
 ```
 Description
 ===========
