@@ -38,9 +38,9 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
     }
 
     var postIdArr = [];
-    for (var i = 0; i < results.length; i++) {
+    for (var i = 0, resultsLen = results.length; i < resultsLen; i++) {
       var postJson = JSON.parse(results[i].body);
-      for (var j = 0; j < postJson.length; j++) {
+      for (var j = 0, postLen = postJson.length; j < postLen; j++) {
         var postID = postJson[j].id;
         postIdArr.push(postID);
       }
