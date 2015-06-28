@@ -159,7 +159,7 @@ DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, 
 
   function getContentByIDcallback(err, pageInfo) {
     var idList = pageInfo.postIdList;
-    // if id list is undefined, directly add 19 count, there are 20 post in a page. (mean a page is not exiting.)
+
     if (typeof idList !== 'undefined' && !err && idList.length > 0) {
       TOTAL_POST_NUM += idList.length;
     } else {
