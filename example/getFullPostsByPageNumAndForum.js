@@ -11,11 +11,11 @@ var dcardDataGetter = new DcardJS();
  * @return {String} title, content of post.
  */
 
-dcardDataGetter.getPostsByPageRangeAndForum(1, 5, 'sex', 'HOT_WITH_FORUM', function(err, postList) {
+dcardDataGetter.getFullPostsByPageNumAndForum(4, 'sex', 'DEFAULT', function(err, postList) {
   if (!err) {
-    console.log('[*]' + postList.length);
+    console.log('[*]' + postList.length + ' posts');
     for (var i = 0, len = postList.length; i < len; i++) {
-      console.log(postList[i].version[0].title + ', createdAt: ' + postList[i].version[0].createdAt + ', like:' + postList[i].likeCount);
+      console.log(postList[i].title + ', createdAt: ' + postList[i].rawObject.createdAt + ', like:' + postList[i].rawObject.likeCount);
     }
   }else {
     console.log(err);

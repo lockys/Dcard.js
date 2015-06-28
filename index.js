@@ -1,6 +1,5 @@
 var request = require('request');
 var url = require('url');
-var events = require('events');
 var async = require('async');
 
 var isValidInput = require('./lib/validator').isValidInput;
@@ -34,7 +33,8 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
   async.map(reqArray, request.get, function(err, results) {
     // results is now an array of stats for each file
     if (err) {
-      console.log(e);
+      console.log(err);
+      return;
     }
 
     var postIdArr = [];
@@ -102,13 +102,57 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
 
 /**
  * Get Dcard Posts by given page range and forum.
- * @param {Number} start: the page number to start
- * @param {Number} end: the ending page number
+ * @param {Number} pageNum: pageNum
  * @param {String} forumName: forum name
  * @param {String} getType: NORMAL, HOT, HOT_WITH_FORUM
  * @return {Array} Post object array in ascending order of time post created.
  */
-DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, getType, callback) {
+DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, getType, callback) {
+  if (!isValidInput(pageNum)) {
+    callback(new Error('Page number must be positive integer.'));
+    return false;
+  }
+
+  getType = getType || 'DEFAULT';
+  var d = new DcardJS();
+  switch (getType) {
+    case 'HOT_WITH_FORUM':
+      d.getHotPostIdByForum(forumName, pageNum, getContentByIDcallback);
+      break;
+    case 'HOT':
+      d.getHotPostId(pageNum, getContentByIDcallback);
+      break;
+    default:
+      d.getPostIdByForum(forumName, pageNum, getContentByIDcallback);
+  }
+
+  function getContentByIDcallback(err, postIdArr) {
+    var reqArray = [];
+    for (var i = 0, len = postIdArr.length; i < len; i++) {
+      var postAPI = url.resolve(d.POST_CONTENT_API, postIdArr[i].toString());
+      reqArray.push(postAPI);
+    }
+
+    async.map(reqArray, request.get, function(err, results) {
+      // results is now an array of stats for each file
+      if (err) {
+        console.log(err);
+        return;
+      }
+
+      var postArr = [];
+
+      for (var i = 0, len = results.length; i < len; i++) {
+        var postJson = JSON.parse(results[i].body);
+        postArr.push({title: postJson.version[0].title,
+                        content: postJson.version[0].content,
+                        comment: postJson.comment,
+                        rawObject: postJson});
+      }
+
+      callback(null, postArr);
+    });
+  }
 
 };
 
