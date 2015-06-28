@@ -12,9 +12,9 @@ var dcardDataGetter = new DcardJS();
  * @return {Number} post ID Number
  */
 
-dcardDataGetter.getPostIdByForum ('sex', 3, function(err, postID) {
+dcardDataGetter.getPostIdByForum ('funny', 4, function(err, postIdArr) {
   if (!err) {
-    console.log('Post id: ' + postID);
+    console.log('Post ID Array: ' + postIdArr);
   } else {
     console.log(err);
   }

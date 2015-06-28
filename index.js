@@ -1,6 +1,8 @@
 var request = require('request');
 var url = require('url');
-var isValidInput = require('./lib/helper').isValidInput;
+var async = require('async');
+
+var isValidInput = require('./lib/validator').isValidInput;
 
 function DcardJS() {
   this.FORUM_API = 'https://www.dcard.tw/api/forum/';
@@ -9,10 +11,10 @@ function DcardJS() {
 }
 
 /**
- * Get Dcard Posts ID by forum name and forum page number
- * @param {String} forum name
- * @param {Number} forum page number
- * @return {Number} post ID Number
+ * Get Dcard Posts ID by forum name and page number of a forum
+ * @param {String} forumName: forum name
+ * @param {Number} pageNum: page number of a forum
+ * @return {Array} Post ID array for a given page number
  */
 DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
 
@@ -22,38 +24,38 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
   }
 
   var forumAPI = url.resolve(this.FORUM_API, forumName);
-
+  var reqArray = [];
   for (var i = 1; i <= pageNum; i++) {
     var forumPage = forumAPI + '/' + i.toString();
-    request(forumPage, correspondPosts);
-
-    //console.log('Sent request to -> ' + forumPage);
+    reqArray.push(forumPage);
   }
 
-  // console.log(forumAPI);
-  function correspondPosts(error, response, body) {
-    if (typeof response !== 'undefined' && !error && response.statusCode == 200) {
-      if (body === '[]') {
-        // if body is empty (Ugly ways)
-        callback(new Error('Page not found'), {});
-      }
+  async.map(reqArray, request.get, function(err, results) {
+    // results is now an array of stats for each file
+    if (err) {
+      console.log(err);
+      return;
+    }
 
-      var postJson = JSON.parse(body);
+    var postIdArr = [];
+    for (var i = 0, resultsLen = results.length; i < resultsLen; i++) {
+      var postJson = JSON.parse(results[i].body);
       for (var j = 0, postLen = postJson.length; j < postLen; j++) {
         var postID = postJson[j].id;
-        callback(null, postID);
-
-        //console.log(postJson[j].id);
+        postIdArr.push(postID);
       }
     }
-  }
+
+    callback(null, postIdArr);
+  });
+
 };
 
 /**
- * Get Dcard Hot Posts ID by forum name and forum page number
- * @param {String} forum name
- * @param {Number} forum page number
- * @return {Number} post ID Number
+ * Get Dcard Hot Posts ID by forum name and page number of forum
+ * @param {String} forumName: forum name
+ * @param {Number} pageNum: page number of forum
+ * @return {Array} post ID array Number for a given page number and forum name
  */
 DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
 
@@ -62,43 +64,37 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
     return false;
   }
 
-  var hotPath = forumName + '/' + pageNum.toString() + '/popular';
-  var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
-
+  // Prepare for request URLs
+  var reqURLArray = [];
   for (var i = 1; i <= pageNum; i++) {
-    request(hotPostAPI, correspondPosts);
-
-    //console.log('Sent request to -> ' + forumPage);
+    var hotPath = forumName + '/' + i.toString() + '/popular'
+    var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
+    reqURLArray.push(hotPostAPI);
   }
 
-  // console.log(forumAPI);
-  function correspondPosts(error, response, body) {
-    if (typeof response !== 'undefined' && !error && response.statusCode == 200) {
-      if (body === '[]') {
-        // if body is empty (Ugly ways)
-        callback(new Error('Page not found'), {});
-      }
-
-      var postJson = JSON.parse(body);
-      var sortedPostId = [];
-
-      (function syncPostID(x) {
-        if (x < postJson.length) {
-          var postID = postJson[x].id;
-          sortedPostId.push(postID);
-          syncPostID(x + 1);
-        }
-      })(0);
-
-      callback(null, {postIdList: sortedPostId});
+  async.map(reqURLArray, request.get, function(err, results) {
+    if (err) {
+      console.log(e);
     }
-  }
+
+    var postIdArr = [];
+    for (var i = 0, resultsLen = results.length; i < resultsLen; i++) {
+      var postJson = JSON.parse(results[i].body);
+      for (var j = 0, postLen = postJson.length; j < postLen; j++) {
+        var postID = postJson[j].id;
+        postIdArr.push(postID);
+      }
+    }
+
+    callback(null, postIdArr);
+  });
+
 };
 
 /**
  * Get Dcard Posts title and content
  * @param {Number} post id
- * @return {String} title, content of post, comments of post, post URL
+ * @return {String} title, content of post, comments of post, post URL, and raw object of post
  */
 DcardJS.prototype.getContentByPostID = function(postID, callback) {
 
@@ -119,16 +115,16 @@ DcardJS.prototype.getContentByPostID = function(postID, callback) {
       callback(null, {title: contentJson.version[0].title,
                       content: contentJson.version[0].content,
                       comment: contentJson.comment,
-                      url: postURL});
+                      url: postURL,
+                      rawObject: contentJson});
     }
   });
 };
 
 /**
- * Get Dcard Hot Posts ID by forum name and forum page number
- * @param {String} forum name
- * @param {Number} forum page number
- * @return {Number} post ID Number
+ * Get global Dcard Hot Posts ID forum page number
+ * @param {Number} pageNum: fpageNum orum page number
+ * @return {Array} post ID array Number for a given page number
  */
 DcardJS.prototype.getHotPostId = function(pageNum, callback) {
 
@@ -137,36 +133,86 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
     return false;
   }
 
-  var hotPath = 'all/' + pageNum.toString() + '/popular';
-  var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
-
+  // Prepare for request URLs
+  var reqURLArray = [];
   for (var i = 1; i <= pageNum; i++) {
-    request(hotPostAPI, correspondPosts);
-
-    // console.log('Sent request to -> ' + hotPostAPI);
+    var hotPath = 'all/' + i.toString() + '/popular'
+    var hotPostAPI = url.resolve(this.FORUM_API, hotPath);
+    reqURLArray.push(hotPostAPI);
   }
 
-  function correspondPosts(error, response, body) {
-    if (typeof response !== 'undefined' && !error && response.statusCode == 200) {
-      if (body === '[]') {
-        // if body is empty (Ugly ways)
-        callback(new Error('Page not found'), {});
+  async.map(reqURLArray, request.get, function(err, results) {
+    if (err) {
+      console.log(e);
+    }
+
+    var postIdArr = [];
+    for (var i = 0, resultsLen = results.length; i < resultsLen; i++) {
+      var postJson = JSON.parse(results[i].body);
+      for (var j = 0, postLen = postJson.length; j < postLen; j++) {
+        var postID = postJson[j].id;
+        postIdArr.push(postID);
+      }
+    }
+
+    callback(null, postIdArr);
+  });
+};
+
+/**
+ * Get Dcard Posts by given page range and forum.
+ * @param {Number} pageNum: pageNum
+ * @param {String} forumName: forum name
+ * @param {String} getType: NORMAL, HOT, HOT_WITH_FORUM
+ * @return {Array} Post object array in ascending order of time post created.
+ */
+DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, getType, callback) {
+  if (!isValidInput(pageNum)) {
+    callback(new Error('Page number must be positive integer.'));
+    return false;
+  }
+
+  getType = getType || 'DEFAULT';
+  var d = new DcardJS();
+  switch (getType) {
+    case 'HOT_WITH_FORUM':
+      d.getHotPostIdByForum(forumName, pageNum, getContentByIDcallback);
+      break;
+    case 'HOT':
+      d.getHotPostId(pageNum, getContentByIDcallback);
+      break;
+    default:
+      d.getPostIdByForum(forumName, pageNum, getContentByIDcallback);
+  }
+
+  function getContentByIDcallback(err, postIdArr) {
+    var reqArray = [];
+    for (var i = 0, len = postIdArr.length; i < len; i++) {
+      var postAPI = url.resolve(d.POST_CONTENT_API, postIdArr[i].toString());
+      reqArray.push(postAPI);
+    }
+
+    async.map(reqArray, request.get, function(err, results) {
+      // results is now an array of stats for each file
+      if (err) {
+        console.log(err);
+        return;
       }
 
-      var postJson = JSON.parse(body);
-      var sortedPostId = [];
+      var postArr = [];
 
-      (function syncPostID(x) {
-        if (x < postJson.length) {
-          var postID = postJson[x].id;
-          sortedPostId.push(postID);
-          syncPostID(x + 1);
-        }
-      })(0);
+      for (var i = 0, len = results.length; i < len; i++) {
+        var postJson = JSON.parse(results[i].body);
+        postArr.push({title: postJson.version[0].title,
+                        content: postJson.version[0].content,
+                        comment: postJson.comment,
+                        rawObject: postJson});
+      }
 
-      callback(null, {postIdList: sortedPostId});
-    }
+      callback(null, postArr);
+    });
   }
+
 };
 
 module.exports = DcardJS;

@@ -10,12 +10,14 @@ var dcardDataGetter = new DcardJS();
  * @param {Number} post id
  * @return {String} title, content of post.
  */
-dcardDataGetter.getContentByPostID(328484, function(err, post) {
+
+dcardDataGetter.getFullPostsByPageNumAndForum(4, 'sex', 'DEFAULT', function(err, postList) {
   if (!err) {
-    console.log('Title: ' + post.title);
-    console.log('Content: ' + post.content);
-    console.log('POST URL: ' + post.url);
-  } else {
+    console.log('[*]' + postList.length + ' posts');
+    for (var i = 0, len = postList.length; i < len; i++) {
+      console.log(postList[i].title + ', createdAt: ' + postList[i].rawObject.createdAt + ', like:' + postList[i].rawObject.likeCount);
+    }
+  }else {
     console.log(err);
   }
 });
