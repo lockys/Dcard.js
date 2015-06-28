@@ -26,7 +26,7 @@ Get Dcard Posts by given page number and forum.
 
 Example:
 ========
-Get Hot Post ID Arr
+Get Hot Post ID Array
 ```
 // Demo program for Dcard data retriever.
 // Author: John-Lin(https://github.com/John-Lin), lockys(https://github.com/lockys)
