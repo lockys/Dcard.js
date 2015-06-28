@@ -25,7 +25,7 @@ Alpha edition @ 2015/06/25
 - Get Dcard Posts by given page number and forum.  
 
 
-Example:
+Usage:
 ========
 Get Hot Post ID Array
 ```
@@ -44,9 +44,10 @@ dcard.getHotPostId(2, function(err, postIdArr) {
   }
 });
 ```
-Get content by a Post ID
-```
 
+Get content by a Post ID
+
+```
 var Dcard = require('dcard');
 var dcard = new Dcard();
 
