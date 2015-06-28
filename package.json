@@ -1,6 +1,6 @@
 {
   "name": "dcard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple data retriever of Dcard for nodeJS",
   "main": "index.js",
   "scripts": {
