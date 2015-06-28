@@ -1,18 +1,21 @@
 {
   "name": "dcardJS",
   "version": "1.0.0",
-  "description":"Simple data retriever of Dcard for nodeJS",
+  "description": "Simple data retriever of Dcard for nodeJS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
-  "contributors": [{
+  "contributors": [
+    {
       "name": "John Lin",
       "email": "linton.tw@gmail.com"
-      }],
+    }
+  ],
   "license": "MIT",
   "dependencies": {
+    "async": "^1.2.1",
     "request": "^2.58.0"
   },
   "directories": {
