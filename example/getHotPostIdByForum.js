@@ -14,7 +14,7 @@ var dcardDataGetter = new DcardJS();
 
 dcardDataGetter.getHotPostIdByForum('funny', 1, function(err, postInfo) {
   if (!err) {
-    console.log('Hot Post id by forum: ' + postInfo.postIdList);
+    console.log('Hot Post id List by forum: ' + postInfo.postIdList + ' at Page ' + postInfo.pageNum);
   } else {
     console.log(err);
   }
