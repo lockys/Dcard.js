@@ -7,7 +7,7 @@
    \/____/   \/_____/   \/_/\/_/   \/_/ /_/   \/____/ \/_____/   \/_____/
 
 ```
-Usage
+Install
 ======
 ```
 $ npm install dcard
@@ -25,7 +25,7 @@ Alpha edition @ 2015/06/25
 - Get Dcard Posts by given page number and forum.  
 
 
-Usage:
+Usage
 ========
 Get Hot Post ID Array
 ```
@@ -72,7 +72,7 @@ Dcard API list
 Please, see the [Wiki page](https://github.com/lockys/Dcard-Parser/wiki)
 
 
-Contributors
+Collaborators
 ============
 [lockys](https://github.com/lockys)、
 [John-Lin](https://github.com/John-Lin)
