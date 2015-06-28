@@ -11,10 +11,10 @@ function DcardJS() {
 }
 
 /**
- * Get Dcard Posts ID by forum name and forum page number
- * @param {String} forum name
- * @param {Number} forum page number
- * @return {Number} Post ID Number for given page number
+ * Get Dcard Posts ID by forum name and page number of a forum
+ * @param {String} forumName: forum name
+ * @param {Number} pageNum: page number of a forum
+ * @return {Array} Post ID array for a given page number
  */
 DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
 
@@ -51,10 +51,10 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
 };
 
 /**
- * Get Dcard Hot Posts ID by forum name and forum page number
- * @param {String} forum name
- * @param {Number} forum page number
- * @return {Array} post ID array Number for given page number
+ * Get Dcard Hot Posts ID by forum name and page number of forum
+ * @param {String} forumName: forum name
+ * @param {Number} pageNum: page number of forum
+ * @return {Array} post ID array Number for a given page number and forum name
  */
 DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
 
@@ -95,7 +95,7 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
 /**
  * Get Dcard Posts title and content
  * @param {Number} post id
- * @return {String} title, content of post, comments of post, post URL
+ * @return {String} title, content of post, comments of post, post URL, and raw object of post
  */
 DcardJS.prototype.getContentByPostID = function(postID, callback) {
 
@@ -117,66 +117,55 @@ DcardJS.prototype.getContentByPostID = function(postID, callback) {
                       content: contentJson.version[0].content,
                       comment: contentJson.comment,
                       url: postURL,
-                      fullObj: contentJson});
+                      rawObject: contentJson});
     }
   });
 };
 
 /**
  * Get Dcard Posts by given page range and forum.
- * @param {Number} start page
- * @param {Number} end page
- * @param {String} forum name
- * @param {String} getType, NORMAL, HOT, HOT_WITH_FORUM
- * @return {Array} Post object array on ascending order of time post created.
+ * @param {Number} start: the page number to start
+ * @param {Number} end: the ending page number
+ * @param {String} forumName: forum name
+ * @param {String} getType: NORMAL, HOT, HOT_WITH_FORUM
+ * @return {Array} Post object array in ascending order of time post created.
  */
 DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, getType, callback) {
+
+  if (!isValidInput(start) || !isValidInput(end)) {
+    callback(new Error('Page number must be positive integer.'));
+    return false;
+  }
+
   getType = getType || 'DEFAULT';
   var TOTAL_POST_CNT = 0;
   var TOTAL_POST_NUM = 0;
   var RANGE = end - start + 1;
   var postList = [];
-  var d = new DcardJS();
-  var isGetPostNum = false;
   var eventEmitter = new events.EventEmitter();
 
   eventEmitter.on('post-cnt', plusPostCnt);
 
+  var d = new DcardJS();
   for (var i = start; i <= end; i++) {
     switch (getType) {
       case 'HOT_WITH_FORUM':
-        d.getHotPostIdByForum(forumName, i, getContentByID);
+        d.getHotPostIdByForum(forumName, i, getContentByIDcallback);
         break;
       case 'HOT':
-        d.getHotPostId(i, getContentByID);
+        d.getHotPostId(i, getContentByIDcallback);
         break;
       default:
-        d.getPostIdByForum(forumName, i, getContentByID);
+        d.getPostIdByForum(forumName, i, getContentByIDcallback);
     }
-
   }
 
-  function getContentByID(err, pageInfo) {
+  function getContentByIDcallback(err, pageInfo) {
     var idList = pageInfo.postIdList;
-
-    // Guess the Totoal Posts.
-    if (pageInfo.pageNum === 1 && !isGetPostNum) {
-      TOTAL_POST_NUM = idList.length + (RANGE - 1) * d.POST_PER_PAGE;
-      isGetPostNum = true;
-    }else if (!isGetPostNum) {
-      TOTAL_POST_NUM = RANGE * d.POST_PER_PAGE;
-      isGetPostNum = true;
-    }
-
-    // Adjust the TOTAL_POST_NUM if meet the end page Number
-    if (pageInfo.pageNum === end && idList.length < d.POST_PER_PAGE) {
-      TOTAL_POST_NUM = TOTAL_POST_NUM - d.POST_PER_PAGE + idList.length;
-    }
-
-    // if id list is undefined, directly add 19 count, there are 20 post in a page.
-    if (typeof idList === 'undefined') {
-      TOTAL_POST_CNT = TOTAL_POST_CNT + 19;
-      eventEmitter.emit('post-cnt');
+    // if id list is undefined, directly add 19 count, there are 20 post in a page. (mean a page is not exiting.)
+    if (typeof idList !== 'undefined' && !err && idList.length > 0) {
+      TOTAL_POST_NUM += idList.length;
+    } else {
       return;
     }
 
@@ -186,7 +175,7 @@ DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, 
   }
 
   function appendPost(err, post) {
-    postList.push(post.fullObj);
+    postList.push(post.rawObject);
     eventEmitter.emit('post-cnt');
   }
 
@@ -194,6 +183,7 @@ DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, 
     TOTAL_POST_CNT++;
     if (TOTAL_POST_CNT === TOTAL_POST_NUM) {
       // All Post Get
+      // Sorted for a given diffrent getType
       postList.sort(function(a, b) {
         switch (getType) {
           case 'NORMAL':
@@ -209,10 +199,9 @@ DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, 
 };
 
 /**
- * Get Dcard Hot Posts ID by forum name and forum page number
- * @param {String} forum name
- * @param {Number} forum page number
- * @return {Number} post ID Number
+ * Get global Dcard Hot Posts ID forum page number
+ * @param {Number} pageNum: fpageNum orum page number
+ * @return {Array} post ID array Number for a given page number
  */
 DcardJS.prototype.getHotPostId = function(pageNum, callback) {
 

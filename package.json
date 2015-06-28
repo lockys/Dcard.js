@@ -13,7 +13,6 @@
       }],
   "license": "MIT",
   "dependencies": {
-    "get-urls": "^5.0.0",
     "request": "^2.58.0"
   },
   "directories": {

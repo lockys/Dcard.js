@@ -10,13 +10,12 @@ var dcardDataGetter = new DcardJS();
  * @param {Number} post id
  * @return {String} title, content of post.
  */
-
 dcardDataGetter.getContentByPostID(328484, function(err, post) {
   if (!err) {
-    // console.log(post);
     console.log('Title: ' + post.title);
     console.log('Content: ' + post.content);
     console.log('POST URL: ' + post.url);
-
+  } else {
+    console.log(err);
   }
 });

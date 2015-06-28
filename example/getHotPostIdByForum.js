@@ -12,9 +12,9 @@ var dcardDataGetter = new DcardJS();
  * @return {Number} post ID Number
  */
 
-dcardDataGetter.getHotPostIdByForum('funny', 1, function(err, postInfo) {
+dcardDataGetter.getHotPostIdByForum('sex', 1, function(err, postInfo) {
   if (!err) {
-    console.log('Hot Post id List by forum: ' + postInfo.postIdList + ' at Page ' + postInfo.pageNum);
+    console.log('Hot Post id List by forum: ' + postInfo.postIdList.length + ' at Page ' + postInfo.pageNum);
   } else {
     console.log(err);
   }

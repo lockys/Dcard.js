@@ -13,6 +13,7 @@ var dcardDataGetter = new DcardJS();
 
 dcardDataGetter.getPostsByPageRangeAndForum(1, 5, 'sex', 'HOT_WITH_FORUM', function(err, postList) {
   if (!err) {
+    console.log('[*]' + postList.length);
     for (var i = 0, len = postList.length; i < len; i++) {
       console.log(postList[i].version[0].title + ', createdAt: ' + postList[i].version[0].createdAt + ', like:' + postList[i].likeCount);
     }
