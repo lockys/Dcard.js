@@ -16,7 +16,7 @@ Description
 ===========
 Simple data retriever of Dcard for nodeJS  
 Alpha edition @ 2015/06/25  
-Support:  
+Support features:  
 Get Dcard Posts ID by forum name and page number of a forum  
 Get Dcard Hot Posts ID by forum name and page number of forum  
 Get Dcard Posts title and content  
