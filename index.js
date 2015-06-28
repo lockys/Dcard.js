@@ -7,6 +7,7 @@ function DcardJS() {
   this.FORUM_API = 'https://www.dcard.tw/api/forum/';
   this.POST_CONTENT_API = 'https://www.dcard.tw/api/post/all/';
   this.POST_URL = 'https://www.dcard.tw/f/all/p/';
+  this.POST_PER_PAGE = 20;
 }
 
 /**
@@ -133,7 +134,6 @@ DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, 
   getType = getType || 'DEFAULT';
   var TOTAL_POST_CNT = 0;
   var TOTAL_POST_NUM = 0;
-  var POST_PER_PAGE = 20;
   var RANGE = end - start + 1;
   var postList = [];
   var d = new DcardJS();
@@ -157,21 +157,20 @@ DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, 
   }
 
   function getContentByID(err, pageInfo) {
-
     var idList = pageInfo.postIdList;
 
     // Guess the Totoal Posts.
     if (pageInfo.pageNum === 1 && !isGetPostNum) {
-      TOTAL_POST_NUM = idList.length + (RANGE - 1) * POST_PER_PAGE;
+      TOTAL_POST_NUM = idList.length + (RANGE - 1) * d.POST_PER_PAGE;
       isGetPostNum = true;
     }else if (!isGetPostNum) {
-      TOTAL_POST_NUM = RANGE * POST_PER_PAGE;
+      TOTAL_POST_NUM = RANGE * d.POST_PER_PAGE;
       isGetPostNum = true;
     }
 
     // Adjust the TOTAL_POST_NUM if meet the end page Number
-    if (pageInfo.pageNum === end && idList.length < POST_PER_PAGE) {
-      TOTAL_POST_NUM = TOTAL_POST_NUM - POST_PER_PAGE + idList.length;
+    if (pageInfo.pageNum === end && idList.length < d.POST_PER_PAGE) {
+      TOTAL_POST_NUM = TOTAL_POST_NUM - d.POST_PER_PAGE + idList.length;
     }
 
     // if id list is undefined, directly add 19 count, there are 20 post in a page.
