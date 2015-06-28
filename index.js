@@ -7,7 +7,6 @@ function DcardJS() {
   this.FORUM_API = 'https://www.dcard.tw/api/forum/';
   this.POST_CONTENT_API = 'https://www.dcard.tw/api/post/all/';
   this.POST_URL = 'https://www.dcard.tw/f/all/p/';
-  this.POST_PER_PAGE = 20;
 }
 
 /**
@@ -140,10 +139,8 @@ DcardJS.prototype.getPostsByPageRangeAndForum = function(start, end, forumName, 
   getType = getType || 'DEFAULT';
   var TOTAL_POST_CNT = 0;
   var TOTAL_POST_NUM = 0;
-  var RANGE = end - start + 1;
   var postList = [];
   var eventEmitter = new events.EventEmitter();
-
   eventEmitter.on('post-cnt', plusPostCnt);
 
   var d = new DcardJS();
