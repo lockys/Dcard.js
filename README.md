@@ -46,6 +46,7 @@ dcard.getHotPostId(2, function(err, postIdArr) {
 ```
 Get content by a Post ID
 ```
+
 var Dcard = require('dcard');
 var dcard = new Dcard();
 

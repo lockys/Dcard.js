@@ -6,3 +6,4 @@ bin
 images
 .DS_Store
 s3Key
+npm-debug.log
