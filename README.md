@@ -74,5 +74,4 @@ Please, see the [Wiki page](https://github.com/lockys/Dcard-Parser/wiki)
 
 Collaborators
 ============
-[lockys](https://github.com/lockys)、
-[John-Lin](https://github.com/John-Lin)
+[lockys](https://github.com/lockys), [John-Lin](https://github.com/John-Lin)
