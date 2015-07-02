@@ -17,15 +17,15 @@ Description
 Simple data retriever of Dcard for nodeJS  
 Alpha edition @ 2015/06/25  
 
-**Support features:**  
-- Get Dcard Posts ID by forum name and page number of a forum  
-- Get Dcard Hot Posts ID by forum name and page number of forum  
-- Get Dcard Posts title and content  
-- Get global Dcard Hot Posts ID forum page number
-- Get Dcard Posts by given page number and forum.  
+**Supported features:**  
+- Get posts ID of Dcard by forum name and page number of a forum  
+- Get hot posts ID of Dcard by forum name and page number of forum  
+- Get posts title and content of Dcard by a specified ID.
+- Get global hot posts ID of Dcard by page number
+- Get a list of posts of Dcard by a given page number and forum.  
 
 
-Usage
+How to Use?
 ========
 Get Hot Post ID Array
 ```
@@ -45,7 +45,7 @@ dcard.getHotPostId(2, function(err, postIdArr) {
 });
 ```
 
-Get content by a Post ID
+Get an title content by a Post ID
 
 ```
 var Dcard = require('dcard');
@@ -66,6 +66,10 @@ dcard.getContentByPostID(328484, function(err, post) {
 
 ```
 See more Example code in the example folder.
+
+A simple demo prgoram using DcardJS
+===================================
+[Dcard image helper](https://github.com/lockys/Dcard-Image-helper)
 
 Dcard API list
 ==============
