@@ -9,6 +9,8 @@
 ```
 Install
 ======
+![npm info](https://nodei.co/npm/dcard.png?downloads=true)
+
 ```
 $ npm install dcard
 ```
