@@ -65,7 +65,7 @@ dcard.getContentByPostID(328484, function(err, post) {
 });
 
 ```
-See more Example code in the example folder.
+See more sample code snippets in the [example folder](https://github.com/lockys/DcardJS/tree/master/example).
 
 A simple demo prgoram using DcardJS
 ===================================
