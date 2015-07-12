@@ -15,6 +15,7 @@ dcardDataGetter.getContentByPostID(328484, function(err, post) {
     console.log('Title: ' + post.title);
     console.log('Content: ' + post.content);
     console.log('POST URL: ' + post.url);
+    console.log('Raw Contect Obj ' + post.rawObject);
   } else {
     console.log(err);
   }
