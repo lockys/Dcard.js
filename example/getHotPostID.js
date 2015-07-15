@@ -2,7 +2,7 @@
 // Author: John-Lin(https://github.com/John-Lin), lockys(https://github.com/lockys)
 // For all forum name refer to:
 // https://github.com/lockys/0card/blob/master/dacrdAPI.md#forum-list
-var DcardJS = require('../index');
+var DcardJS = require('dcard');
 var dcardDataGetter = new DcardJS();
 
 /**

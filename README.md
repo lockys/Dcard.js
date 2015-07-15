@@ -57,15 +57,66 @@ var dcard = new Dcard();
  * Get Dcard Posts title and content
  * @param {Number} post id
  * @return {String} title, content of post.
+ * @return {object} raw object of a post.
  */
 dcard.getContentByPostID(328484, function(err, post) {
   if (!err) {
     console.log('Title: ' + post.title);
     console.log('Content: ' + post.content);
     console.log('POST URL: ' + post.url);
+    console.log('Raw Contect Obj ' + post.rawObject);
   }
 });
 
+```
+Get Post ID List by forum name
+
+```
+var DcardJS = require('dcard');
+var dcardDataGetter = new DcardJS();
+
+/**
+ * Get Dcard Posts ID by forum name and forum page number
+ * @param {String} forum name
+ * @param {Number} forum page number
+ * @return {Number} post ID Number
+ */
+
+dcardDataGetter.getPostIdByForum ('funny', 4, function(err, postIdArr) {
+  if (!err) {
+    console.log('Post ID Array: ' + postIdArr);
+  } else {
+    console.log(err);
+  }
+});
+
+```
+Get List of Posts By Forum name and page number  
+If you specified the third param. with **HOT_WITH_FORUM**, it will give you a list of hot posts according to given forum and page number.  
+If **HOT** is specified, it will give you a list of global hot posts.  
+If **DEFAULT** is specified, it will give you a list of latest posts according to given forum and page number.
+```
+var DcardJS = require('dcard');
+var dcardDataGetter = new DcardJS();
+
+/**
+ * Get Dcard Posts title and content
+ * @param {Number} page number
+ * @param {String} forum name
+ * @param {String} HOT, HOT_WITH_FORUM, DEFAULT
+ * @return {Array} List of posts, get raw object with post[i].rawObject
+ */
+
+dcardDataGetter.getFullPostsByPageNumAndForum(5, 'sex', 'HOT_WITH_FORUM', function(err, postList) {
+  if (!err) {
+    console.log('[*]' + postList.length + ' posts');
+    for (var i = 0, len = postList.length; i < len; i++) {
+      console.log(postList[i].title + ', createdAt: ' + postList[i].rawObject.createdAt + ', like:' + postList[i].rawObject.likeCount);
+    }
+  }else {
+    console.log(err);
+  }
+});
 ```
 See more sample code snippets in the [example folder](https://github.com/lockys/DcardJS/tree/master/example).
 

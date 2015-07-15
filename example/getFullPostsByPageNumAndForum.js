@@ -2,13 +2,15 @@
 // Author: John-Lin(https://github.com/John-Lin), lockys(https://github.com/lockys)
 // For all forum name refer to:
 // https://github.com/lockys/0card/blob/master/dacrdAPI.md#forum-list
-var DcardJS = require('../index');
+var DcardJS = require('dcard');
 var dcardDataGetter = new DcardJS();
 
 /**
  * Get Dcard Posts title and content
- * @param {Number} post id
- * @return {String} title, content of post.
+ * @param {Number} page number
+ * @param {String} forum name
+ * @param {String} HOT, HOT_WITH_FORUM, DEFAULT
+ * @return {Array} List of posts, get raw object with post[i].rawObject
  */
 
 dcardDataGetter.getFullPostsByPageNumAndForum(5, 'sex', 'HOT_WITH_FORUM', function(err, postList) {
