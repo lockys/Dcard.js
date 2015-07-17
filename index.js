@@ -94,7 +94,8 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
 /**
  * Get Dcard Posts title and content
  * @param {Number} post id
- * @return {String} title, content of post, comments of post, post URL, and raw object of post
+ * @return {String} post id, title, content of post, comments of post, post URL
+ * @return raw object of post
  */
 DcardJS.prototype.getContentByPostID = function(postID, callback) {
 
@@ -112,7 +113,8 @@ DcardJS.prototype.getContentByPostID = function(postID, callback) {
       }
 
       var contentJson = JSON.parse(body);
-      callback(null, {title: contentJson.version[0].title,
+      callback(null, {id: postID,
+                      title: contentJson.version[0].title,
                       content: contentJson.version[0].content,
                       comment: contentJson.comment,
                       url: postURL,
