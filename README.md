@@ -16,8 +16,8 @@ $ npm install dcard
 ```
 Description
 ===========
-Simple data retriever of Dcard for nodeJS  
-dcardJS makes you retrieve data from Dcard easily.  
+An Dcard API wrapper for node.
+DcardJS helps you retrieve post data from Dcard easily.  
 
 **Supported features:**  
 - Get posts ID of Dcard by forum name and page number of a forum  
