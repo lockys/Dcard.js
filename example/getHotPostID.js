@@ -11,9 +11,11 @@ var dcardDataGetter = new DcardJS();
  * @return {Number} post ID Number
  */
 
-dcardDataGetter.getHotPostId(2, function(err, postIdArr) {
+dcardDataGetter.getHotPostId(2, function(err, postArr) {
   if (!err) {
-    console.log('Hot Post id List: ' + postIdArr);
+    for (var i = 0, len = postArr.length; i < len; i++) {
+      console.log('[Title] ' + postArr[i].title + ', [gender] ' + postArr[i].gender + ', [school] ' + postArr[i].school + ', [department] ' + postArr[i].department);
+    }
   } else {
     console.log(err);
   }
