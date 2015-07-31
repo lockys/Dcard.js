@@ -37,16 +37,28 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
       return;
     }
 
-    var postIdArr = [];
+    var postArr = [];
     for (var i = 0, resultsLen = results.length; i < resultsLen; i++) {
       var postJson = JSON.parse(results[i].body);
       for (var j = 0, postLen = postJson.length; j < postLen; j++) {
-        var postID = postJson[j].id;
-        postIdArr.push(postID);
+        var post = {  id: postJson[j].id,
+                      likeCount: postJson[j].likeCount,
+                      comment: postJson[j].comment,
+                      title: postJson[j].version[0].title,
+                      content: postJson[j].version[0].content,
+                      gender: postJson[j].member.gender,
+                      school: postJson[j].member.school,
+                      department: postJson[j].member.department,
+                      forumName: postJson[j].forumName,
+                      createdAt: postJson[j].createdAt,
+                      updatedAt: postJson[j].updatedAt,
+                      rawObject: postJson[j],
+                    };
+        postArr.push(post);
       }
     }
 
-    callback(null, postIdArr);
+    callback(null, postArr);
   });
 
 };
@@ -77,16 +89,28 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
       console.log(err);
     }
 
-    var postIdArr = [];
+    var postArr = [];
     for (var i = 0, resultsLen = results.length; i < resultsLen; i++) {
       var postJson = JSON.parse(results[i].body);
       for (var j = 0, postLen = postJson.length; j < postLen; j++) {
-        var postID = postJson[j].id;
-        postIdArr.push(postID);
+        var post = {  id: postJson[j].id,
+                      likeCount: postJson[j].likeCount,
+                      comment: postJson[j].comment,
+                      title: postJson[j].version[0].title,
+                      content: postJson[j].version[0].content,
+                      gender: postJson[j].member.gender,
+                      school: postJson[j].member.school,
+                      department: postJson[j].member.department,
+                      forumName: postJson[j].forumName,
+                      createdAt: postJson[j].createdAt,
+                      updatedAt: postJson[j].updatedAt,
+                      rawObject: postJson[j],
+                    };
+        postArr.push(post);
       }
     }
 
-    callback(null, postIdArr);
+    callback(null, postArr);
   });
 
 };
@@ -148,16 +172,28 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
       console.log(err);
     }
 
-    var postIdArr = [];
+    var postArr = [];
     for (var i = 0, resultsLen = results.length; i < resultsLen; i++) {
       var postJson = JSON.parse(results[i].body);
       for (var j = 0, postLen = postJson.length; j < postLen; j++) {
-        var postID = postJson[j].id;
-        postIdArr.push(postID);
+        var post = {  id: postJson[j].id,
+                      likeCount: postJson[j].likeCount,
+                      comment: postJson[j].comment,
+                      title: postJson[j].version[0].title,
+                      content: postJson[j].version[0].content,
+                      gender: postJson[j].member.gender,
+                      school: postJson[j].member.school,
+                      department: postJson[j].member.department,
+                      forumName: postJson[j].forumName,
+                      createdAt: postJson[j].createdAt,
+                      updatedAt: postJson[j].updatedAt,
+                      rawObject: postJson[j],
+                    };
+        postArr.push(post);
       }
     }
 
-    callback(null, postIdArr);
+    callback(null, postArr);
   });
 };
 
@@ -208,7 +244,9 @@ DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, g
         postArr.push({title: postJson.version[0].title,
                         content: postJson.version[0].content,
                         comment: postJson.comment,
-                        rawObject: postJson});
+                        rawObject: postJson,
+                      }
+                      );
       }
 
       callback(null, postArr);
