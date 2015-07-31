@@ -128,7 +128,7 @@ See more sample code snippets in the [example folder](https://github.com/lockys/
 
 A simple demo prgoram using DcardJS
 ===================================
-[Dcard image helper](https://github.com/lockys/Dcard-Image-helper)
+[Dcard-Image-Downloader](https://github.com/lockys/Dcard-Image-Downloader)
 
 Contribute
 ==============
