@@ -97,7 +97,7 @@ dcard.getPostIdByForum ('funny', 4, function(err, postArr) {
 });
 
 ```
-**Get an array of information of posts by forum name and page number**
+**Get an array of information of posts by forum name and page number**  
 If you specified the third param. with **HOT_WITH_FORUM**, it will give you an array of information of hot posts according to given forum and page number.  
 If **HOT** is specified, it will give you an array of information of global hot posts.  
 If **DEFAULT** is specified, it will give you an array of information of latest posts according to given forum and page number.
