@@ -29,7 +29,7 @@ DcardJS helps you retrieve post data from Dcard easily.
 
 How to Use?
 ========
-###Get an array of information of hot posts by given page number
+####Get an array of information of hot posts by given page number
 ```
 var Dcard = require('dcard');
 var dcard = new Dcard();
@@ -51,7 +51,7 @@ dcard.getHotPostId(2, function(err, postArr) {
 });
 ```
 
-###Get full information of a post by a post ID
+####Get full information of a post by a post ID
 
 ```
 var Dcard = require('dcard');
@@ -97,7 +97,7 @@ dcard.getPostIdByForum ('funny', 4, function(err, postArr) {
 });
 
 ```
-###Get an array of information of posts by forum name and page number  
+####Get an array of information of posts by forum name and page number  
 If you specified the third param. with **HOT_WITH_FORUM**, it will give you an array of information of hot posts according to given forum and page number.  
 If **HOT** is specified, it will give you an array of information of global hot posts.  
 If **DEFAULT** is specified, it will give you an array of information of latest posts according to given forum and page number.
