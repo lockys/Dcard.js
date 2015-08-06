@@ -29,7 +29,7 @@ DcardJS helps you retrieve post data from Dcard easily.
 
 How to Use?
 ========
-Get Hot Post Array by given page number
+###Get an array of information of hot posts by given page number
 ```
 var Dcard = require('dcard');
 var dcard = new Dcard();
@@ -51,7 +51,7 @@ dcard.getHotPostId(2, function(err, postArr) {
 });
 ```
 
-Get an title content by a Post ID
+###Get full information of a post by a post ID
 
 ```
 var Dcard = require('dcard');
@@ -73,11 +73,11 @@ dcard.getContentByPostID(328484, function(err, post) {
 });
 
 ```
-Get Post List by forum name and page number
+###Get an array of information of posts by forum name and given page number
 
 ```
 var DcardJS = require('dcard');
-var dcardDataGetter = new DcardJS();
+var dcard = new DcardJS();
 
 /**
  * Get Dcard Posts ID by forum name and forum page number
@@ -86,7 +86,7 @@ var dcardDataGetter = new DcardJS();
  * @return {Arr} arr[index].id, arr[index].likeCount, arr[index].comment, arr[index].gender, arr[index].department, arr[index].title, arr[index].content, arr[index].school, arr[index].createdAt, arr[index].updatedAt, arr[index].forumName, arr[index].rawObject(original object from Dcard)
  */
 
-dcardDataGetter.getPostIdByForum ('funny', 4, function(err, postArr) {
+dcard.getPostIdByForum ('funny', 4, function(err, postArr) {
   if (!err) {
     for (var i = 0, len = postArr.length; i < len; i++) {
       console.log('[Title] ' + postArr[i].title + ', [gender] ' + postArr[i].gender + ', [school] ' + postArr[i].school + ', [department] ' + postArr[i].department);
@@ -97,13 +97,13 @@ dcardDataGetter.getPostIdByForum ('funny', 4, function(err, postArr) {
 });
 
 ```
-Get List of Posts By Forum name and page number  
-If you specified the third param. with **HOT_WITH_FORUM**, it will give you a list of hot posts according to given forum and page number.  
-If **HOT** is specified, it will give you a list of global hot posts.  
-If **DEFAULT** is specified, it will give you a list of latest posts according to given forum and page number.
+###Get an array of information of posts by forum name and page number  
+If you specified the third param. with **HOT_WITH_FORUM**, it will give you an array of information of hot posts according to given forum and page number.  
+If **HOT** is specified, it will give you an array of information of global hot posts.  
+If **DEFAULT** is specified, it will give you an array of information of latest posts according to given forum and page number.
 ```
 var DcardJS = require('dcard');
-var dcardDataGetter = new DcardJS();
+var dcard = new DcardJS();
 
 /**
  * Get Dcard Posts title and content
@@ -112,8 +112,7 @@ var dcardDataGetter = new DcardJS();
  * @param {String} HOT, HOT_WITH_FORUM, DEFAULT
  * @return {Arr} arr[index].id, arr[index].likeCount, arr[index].comment, arr[index].gender, arr[index].department, arr[index].title, arr[index].content, arr[index].school, arr[index].createdAt, arr[index].updatedAt, arr[index].forumName, arr[index].rawObject(original object from Dcard)
  */
-
-dcardDataGetter.getFullPostsByPageNumAndForum(5, 'sex', 'HOT_WITH_FORUM', function(err, postList) {
+dcard.getFullPostsByPageNumAndForum(5, 'sex', 'HOT_WITH_FORUM', function(err, postList) {
   if (!err) {
     console.log('[*]' + postList.length + ' posts');
     for (var i = 0, len = postList.length; i < len; i++) {
