@@ -129,7 +129,7 @@ A simple demo prgoram using DcardJS
 ===================================
 - [Dcard-Image-Downloader](https://github.com/lockys/Dcard-Image-Downloader)  
   Get images in post of Dcard easily.
-- [Dcard-Post-Dumper](https://github.com/lockys/Dcard-Post-Dumper)
+- [Dcard-Post-Dumper](https://github.com/lockys/Dcard-Post-Dumper)  
   Dump all post from Dcard into <post-id>.json.
 
 Contribute
