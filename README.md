@@ -14,6 +14,9 @@ Install
 ```
 $ npm install dcard
 ```
+DcardJS is alpha for now. if you meet some errors, please update to latest version and check out the doc.  
+Sorry for inconvenience.
+
 Description
 ===========
 An Dcard API wrapper for node.
