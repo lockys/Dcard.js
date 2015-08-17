@@ -201,6 +201,7 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
 };
 
 /**
+ * !Evaluting to be depreciated.
  * Get Dcard Posts by given page range and forum.
  * @param {Number} pageNum: pageNum
  * @param {String} forumName: forum name
@@ -233,10 +234,11 @@ DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, g
       break;
   }
 
-  function getContentByIDcallback(err, postIdArr) {
+  function getContentByIDcallback(err, postArr) {
     var reqArray = [];
-    for (var i = 0, len = postIdArr.length; i < len; i++) {
-      var postAPI = url.resolve(d.POST_CONTENT_API, postIdArr[i].toString());
+
+    for (var i = 0, len = postArr.length; i < len; i++) {
+      var postAPI = url.resolve(d.POST_CONTENT_API, (postArr[i].id).toString());
       reqArray.push(postAPI);
     }
 
