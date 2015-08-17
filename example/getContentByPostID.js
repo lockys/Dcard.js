@@ -3,7 +3,7 @@
 // For all forum name refer to:
 // https://github.com/lockys/0card/blob/master/dacrdAPI.md#forum-list
 var DcardJS = require('dcard');
-var dcardDataGetter = new DcardJS();
+var dcard = new DcardJS();
 
 /**
  * Get Dcard Posts title and content
@@ -11,7 +11,7 @@ var dcardDataGetter = new DcardJS();
  * @return {String} post id, title, content of post, comments of post, post URL
  * @return raw object of post
  */
-dcardDataGetter.getContentByPostID(328484, function(err, post) {
+dcard.getContentByPostID(328484, function(err, post) {
   if (!err) {
     console.log('Post id: ' + post.id);
     console.log('Title: ' + post.title);

@@ -3,7 +3,7 @@
 // For all forum name refer to:
 // https://github.com/lockys/0card/blob/master/dacrdAPI.md#forum-list
 var DcardJS = require('dcard');
-var dcardDataGetter = new DcardJS();
+var dcard = new DcardJS();
 
 /**
  * Get Dcard Posts title and content
@@ -13,7 +13,7 @@ var dcardDataGetter = new DcardJS();
  * @return {Array} List of posts, get raw object with post[i].rawObject
  */
 
-dcardDataGetter.getFullPostsByPageNumAndForum(5, 'sex', 'HOT_WITH_FORUM', function(err, postList) {
+dcard.getFullPostsByPageNumAndForum(1, 'funny', 'HOT_WITH_FORUM', function(err, postList) {
   if (!err) {
     console.log('[*]' + postList.length + ' posts');
     for (var i = 0, len = postList.length; i < len; i++) {

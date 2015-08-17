@@ -3,7 +3,7 @@
 // For all forum name refer to:
 // https://github.com/lockys/0card/blob/master/dacrdAPI.md#forum-list
 var DcardJS = require('dcard');
-var dcardDataGetter = new DcardJS();
+var dcard = new DcardJS();
 
 /**
  * Get Dcard Hot Posts ID by forum name and forum page number
@@ -12,7 +12,7 @@ var dcardDataGetter = new DcardJS();
  * @return {Number} post ID Number
  */
 
-dcardDataGetter.getHotPostIdByForum('sex', 1, function(err, postArr) {
+dcard.getHotPostIdByForum('funny', 1, function(err, postArr) {
   if (!err) {
     for (var i = 0, len = postArr.length; i < len; i++) {
       console.log('[Title] ' + postArr[i].title + ', [gender] ' + postArr[i].gender + ', [school] ' + postArr[i].school + ', [department] ' + postArr[i].department);
