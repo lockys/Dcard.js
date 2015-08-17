@@ -1,8 +1,10 @@
+module.exports = DcardJS;
+
 var request = require('request');
 var url = require('url');
 var async = require('async');
 
-var isValidInput = require('./lib/validator').isValidInput;
+var validator = require('./lib/validator');
 
 function DcardJS() {
   this.FORUM_API = 'https://www.dcard.tw/api/forum/';
@@ -18,9 +20,9 @@ function DcardJS() {
  */
 DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
 
-  if (!isValidInput(pageNum)) {
+  if (!validator.isValidInput(pageNum)) {
     callback(new Error('Page number must be positive integer.'));
-    return false;
+    return;
   }
 
   var forumAPI = url.resolve(this.FORUM_API, forumName);
@@ -71,9 +73,9 @@ DcardJS.prototype.getPostIdByForum = function(forumName, pageNum, callback) {
  */
 DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
 
-  if (!isValidInput(pageNum)) {
+  if (!validator.isValidInput(pageNum)) {
     callback(new Error('Page number must be positive integer.'));
-    return false;
+    return;
   }
 
   // Prepare for request URLs
@@ -123,9 +125,9 @@ DcardJS.prototype.getHotPostIdByForum = function(forumName, pageNum, callback) {
  */
 DcardJS.prototype.getContentByPostID = function(postID, callback) {
 
-  if (!isValidInput(postID)) {
+  if (!validator.isValidInput(postID)) {
     callback(new Error('Page number must be positive integer.'));
-    return false;
+    return;
   }
 
   var postAPI = url.resolve(this.POST_CONTENT_API, postID.toString());
@@ -142,7 +144,8 @@ DcardJS.prototype.getContentByPostID = function(postID, callback) {
                       content: contentJson.version[0].content,
                       comment: contentJson.comment,
                       url: postURL,
-                      rawObject: contentJson});
+                      rawObject: contentJson,
+                     });
     }
   });
 };
@@ -154,9 +157,9 @@ DcardJS.prototype.getContentByPostID = function(postID, callback) {
  */
 DcardJS.prototype.getHotPostId = function(pageNum, callback) {
 
-  if (!isValidInput(pageNum)) {
+  if (!validator.isValidInput(pageNum)) {
     callback(new Error('Page number must be positive integer.'));
-    return false;
+    return;
   }
 
   // Prepare for request URLs
@@ -201,16 +204,20 @@ DcardJS.prototype.getHotPostId = function(pageNum, callback) {
  * Get Dcard Posts by given page range and forum.
  * @param {Number} pageNum: pageNum
  * @param {String} forumName: forum name
- * @param {String} getType: NORMAL, HOT, HOT_WITH_FORUM
+ * @param {String} getType: DEFAULT, HOT, HOT_WITH_FORUM
  * @return {Array} Post object array in ascending order of time post created.
  */
 DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, getType, callback) {
-  if (!isValidInput(pageNum)) {
+  if (!validator.isValidInput(pageNum)) {
     callback(new Error('Page number must be positive integer.'));
-    return false;
+    return;
   }
 
-  getType = getType || 'DEFAULT';
+  if (!validator.isValidType(getType)) {
+    callback(new Error('Please specify a valid getType string.[\'DEFAULT\', \'HOT\', \'HOT_WITH_FORUM\']'));
+    return;
+  }
+
   var d = new DcardJS();
   switch (getType) {
     case 'HOT_WITH_FORUM':
@@ -219,8 +226,11 @@ DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, g
     case 'HOT':
       d.getHotPostId(pageNum, getContentByIDcallback);
       break;
-    default:
+    case 'DEFAULT':
       d.getPostIdByForum(forumName, pageNum, getContentByIDcallback);
+      break;
+    default:
+      break;
   }
 
   function getContentByIDcallback(err, postIdArr) {
@@ -254,5 +264,3 @@ DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, g
   }
 
 };
-
-module.exports = DcardJS;
