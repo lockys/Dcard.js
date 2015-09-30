@@ -9,7 +9,7 @@
 ```
 Install
 ======
-![npm info](https://nodei.co/npm/dcard.png?downloads=true)
+![npm info](https://nodei.co/npm/dcard.png?downloads=true)  
 ![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg)
 ```
 $ npm install dcard
