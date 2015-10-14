@@ -1,4 +1,4 @@
-# DcardJS
+# dcard.js
 ```
   _____     ______     ______     ______     _____       __     ______
  /\  __-.  /\  ___\   /\  __ \   /\  == \   /\  __-.    /\ \   /\  ___\
@@ -10,11 +10,11 @@
 Install
 ======
 ![npm info](https://nodei.co/npm/dcard.png?downloads=true)  
-![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg)
+![LICENSE](https://img.shields.io/dub/l/vibe-d.svg)
 ```
 $ npm install dcard
 ```
-DcardJS is alpha for now. if you meet some errors, please update to latest version and check out the doc.  
+`dcard.js` is alpha for now. if you meet some errors, please update to latest version and check out the doc.  
 Sorry for inconvenience.
 
 Description
