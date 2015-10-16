@@ -10,6 +10,7 @@ function DcardJS() {
   this.FORUM_API = 'https://www.dcard.tw/api/forum/';
   this.POST_CONTENT_API = 'https://www.dcard.tw/api/post/all/';
   this.POST_URL = 'https://www.dcard.tw/f/all/p/';
+  this.SEARCH_URL = 'https://www.dcard.tw/api/search';
 }
 
 /**
@@ -265,4 +266,36 @@ DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, g
     });
   }
 
+};
+
+/**
+ * Search Dcard Posts
+ * @param {String} keyword: query keyword
+ * @param {String} forumName: forum name
+ * @param {String} school: author's school
+ * @return {Array} Post object array in ascending order of time post created.
+ */
+DcardJS.prototype.search = function(keyword, forumName, school, callback) {
+  if (!keyword) {
+    callback(new Error('Please specify a keyword to search'));
+    return;
+  }
+
+  var query = {search: keyword};
+  if (forumName) {
+    query.forum_alias = forumName;
+  }
+  if (school) {
+    query.school = school;
+  }
+
+  request({method: 'GET', url: this.SEARCH_URL, qs: query, json: true}, function(error, response, body) {
+    if (typeof response !== 'undefined' && !error && response.statusCode == 200) {
+      if (!body || !body.length) {
+        callback(new Error('Post not found'), {});
+      }
+
+      callback(null, body);
+    }
+  });
 };
