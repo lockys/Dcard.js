@@ -1,6 +1,6 @@
 dcard.js
 ==
-https://www.npmjs.com/package/dcard
+https://www.npmjs.com/package/dcard  
 Simple a Dcard API wrapper for NodeJS.  
 DcardJS helps you retrieve post data from Dcard easily.  
 `dcard.js` is alpha for now. if you meet some errors, please update to latest version and check out the doc.  
