@@ -270,9 +270,9 @@ DcardJS.prototype.getFullPostsByPageNumAndForum = function(pageNum, forumName, g
 
 /**
  * Search Dcard Posts
- * @param {String} keyword: query keyword
- * @param {String} forumName: forum name
- * @param {String} school: author's school
+ * @param {String} keyword: query keyword, required
+ * @param {String} forumName: forum name, not required
+ * @param {String} school: author's school, not required
  * @return {Array} Post object array in ascending order of time post created.
  */
 DcardJS.prototype.search = function(keyword, forumName, school, callback) {
@@ -281,21 +281,29 @@ DcardJS.prototype.search = function(keyword, forumName, school, callback) {
     return;
   }
 
-  var query = {search: keyword};
-  if (forumName) {
-    query.forum_alias = forumName;
-  }
+  var query = {
+                  search: keyword,
+                  forum_alias: forumName? forumName : 'all',
+                };
+
   if (school) {
     query.school = school;
   }
 
-  request({method: 'GET', url: this.SEARCH_URL, qs: query, json: true}, function(error, response, body) {
-    if (typeof response !== 'undefined' && !error && response.statusCode == 200) {
-      if (!body || !body.length) {
-        callback(new Error('Post not found'), {});
-      }
+  request({
+              method: 'GET',
+              url: this.SEARCH_URL,
+              qs: query,
+              json: true,
+            },
+            function(error, response, body) {
+              if (typeof response !== 'undefined' && !error && response.statusCode == 200) {
+                if (!body || !body.length) {
+                  callback(new Error('Post not found'), {});
+                }
 
-      callback(null, body);
-    }
-  });
+                callback(null, body);
+              }
+            }
+          );
 };
