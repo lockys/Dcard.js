@@ -3,7 +3,8 @@ dcard.js
 https://www.npmjs.com/package/dcard  
 Simple a Dcard API wrapper for NodeJS.  
 dcard.js helps you retrieve post data from Dcard easily.  
-`dcard.js` is alpha for now. if you meet some errors, please update to latest version and check out the doc.  
+`dcard.js` is **alpha** for now.  
+if you meet some errors, please update to latest version and file an issue.    
 Sorry for inconvenience.
 
 Install
@@ -92,6 +93,30 @@ dcard.getPostIdByForum ('funny', 4, function(err, postArr) {
   }
 });
 
+```
+
+**4. Search title of posts with keyword**
+```javascript
+var Dcard = require('dcard');
+var dcard = new Dcard();
+
+/**
+ * Search Dcard Posts
+ * @param {String} keyword: query keyword
+ * @param {String} forumName: forum name
+ * @param {String} school: author's school
+ * @return {Array} Post object array in ascending order of time post created.
+ */
+dcard.search('閃光', 'all', '清華大學', function(err, postObj) {
+  if (!err) {
+    // You can use JSON.parse(postObj) to deal with it.
+    // check out the postObj with
+    // https://www.dcard.tw/api/search?search=閃光&forum_alias=funny&school=清華大學
+    console.log(postObj);
+  } else {
+    console.log(err);
+  }
+});
 ```
 
 See more sample code snippets in the [example folder](https://github.com/lockys/DcardJS/tree/master/example).
