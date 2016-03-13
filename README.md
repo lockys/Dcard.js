@@ -28,95 +28,42 @@ How to Use?
 **1. Get an array of information of hot posts by given page number**
 
 ```javascript
-var Dcard = require('dcard');
-var dcard = new Dcard();
+// es6
+import { getPostIdByForum } from 'dcard';
+// es5
+var getPostIdByForum = require('dcard').getPostIdByForum;
 
-/**
- * Get Dcard Hot Posts ID by forum page number
- * @param {Number} forum page number
- * @return {Arr} arr[index].id, arr[index].likeCount, arr[index].comment, arr[index].gender, arr[index].department, arr[index].title, arr[index].content, arr[index].school, arr[index].createdAt, arr[index].updatedAt, arr[index].forumName, arr[index].rawObject(original object from Dcard)
- */
-
-dcard.getHotPostId(2, function(err, postArr) {
-  if (!err) {
-    for (var i = 0, len = postArr.length; i < len; i++) {
-      console.log('[Title] ' + postArr[i].title + ', [gender] ' + postArr[i].gender + ', [school] ' + postArr[i].school + ', [department] ' + postArr[i].department);
-    }
-  } else {
-    console.log(err);
-  }
+getPostIdByForum({
+    forum: "all",
+    pageFrom: "1",
+    pageTo: "1",
+    orderBy: "popular"
+}).then(posts => {
+    console.log(posts);
 });
 ```
 
 **2. Get full information of a post by a post ID**
 
 ```javascript
-var Dcard = require('dcard');
-var dcard = new Dcard();
+import { getPostById } from 'dcard';
 
-/**
- * Get Dcard Posts title and content
- * @param {Number} post id
- * @return {String} title, content of post.
- * @return {object} raw object of a post.
- */
-dcard.getContentByPostID(328484, function(err, post) {
-  if (!err) {
-    console.log('Title: ' + post.title);
-    console.log('Content: ' + post.content);
-    console.log('POST URL: ' + post.url);
-    console.log('Raw Contect Obj ' + post.rawObject);
-  }
-});
-
-```
-**3. Get an array of information of posts by forum name and given page number**
-
-```javascript
-var DcardJS = require('dcard');
-var dcard = new DcardJS();
-
-/**
- * Get Dcard Posts ID by forum name and forum page number
- * @param {String} forum name
- * @param {Number} forum page number
- * @return {Arr} arr[index].id, arr[index].likeCount, arr[index].comment, arr[index].gender, arr[index].department, arr[index].title, arr[index].content, arr[index].school, arr[index].createdAt, arr[index].updatedAt, arr[index].forumName, arr[index].rawObject(original object from Dcard)
- */
-
-dcard.getPostIdByForum ('funny', 4, function(err, postArr) {
-  if (!err) {
-    for (var i = 0, len = postArr.length; i < len; i++) {
-      console.log('[Title] ' + postArr[i].title + ', [gender] ' + postArr[i].gender + ', [school] ' + postArr[i].school + ', [department] ' + postArr[i].department);
-    }
-  } else {
-    console.log(err);
-  }
-});
-
+getPostById(id).then(content => {
+    console.log(content);
+})
 ```
 
-**4. Search title of posts with keyword**
+**3. Search title of posts with keyword**
 ```javascript
-var Dcard = require('dcard');
-var dcard = new Dcard();
+import { getSearchResult } from 'dcard';
 
-/**
- * Search Dcard Posts
- * @param {String} keyword: query keyword
- * @param {String} forumName: forum name
- * @param {String} school: author's school
- * @return {Array} Post object array in ascending order of time post created.
- */
-dcard.search('閃光', 'all', '清華大學', function(err, postObj) {
-  if (!err) {
-    // You can use JSON.parse(postObj) to deal with it.
-    // check out the postObj with
-    // https://www.dcard.tw/api/search?search=閃光&forum_alias=funny&school=清華大學
-    console.log(postObj);
-  } else {
-    console.log(err);
-  }
-});
+getSearchResult({
+    query: "閃光",
+    forumAlias: "all",
+    school: ""
+}).then(posts => {
+    console.log(posts);
+})
 ```
 
 See more sample code snippets in the [example folder](https://github.com/lockys/DcardJS/tree/master/example).
@@ -139,7 +86,8 @@ Please, see the [Wiki page](https://github.com/lockys/Dcard-Parser/wiki)
 
 Collaborators
 ==
-[lockys](https://github.com/lockys), [John-Lin](https://github.com/John-Lin)
+[lockys](https://github.com/lockys), [John-Lin](https://github.com/John-Lin),
+[Kai Hao](https://github.com/kevin940726)
 
 LICENSE
 ==
