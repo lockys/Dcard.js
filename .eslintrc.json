@@ -7,24 +7,23 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "sourceType": "module"
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
     },
     "rules": {
-        "indent": [
-            2,
-            "tab"
-        ],
         "linebreak-style": [
             2,
             "unix"
         ],
-        "quotes": [
-            1,
-            "double"
-        ],
         "semi": [
             2,
             "always"
+        ],
+        "no-console": [
+            0
         ]
     }
 }
