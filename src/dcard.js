@@ -35,6 +35,15 @@ const DcardClient = function(originalFetch = originalFetch) {
 export const fetchWithAuth = new DcardClient(originalFetch).fetch;
 
 
+export const getAllForum = (options = {
+    auth: false
+}) => {
+    const fetch = options.auth ? fetchWithAuth : originalFetch;
+
+    return fetch(`${API_ORIGIN}/forum`)
+        .then(response => response.json());
+};
+
 export const getPostsFromForum = (options = {}) => {
     options = {
         forum: "all", // forum name
@@ -47,6 +56,7 @@ export const getPostsFromForum = (options = {}) => {
     let { forum, pageFrom, pageTo, orderBy, auth } = options;
     pageTo = pageFrom < pageTo ? pageTo : pageFrom;
     orderBy = orderBy === "recent" ? "" : "popular";
+
     const fetch = auth ? fetchWithAuth : originalFetch;
 
     const reqArray = new Array(pageTo - pageFrom + 1)
@@ -61,13 +71,18 @@ export const getPostsFromForum = (options = {}) => {
         .then(posts => [].concat(...posts));
 };
 
-export const getPostById = (postId = "") => {
+export const getPostById = ({
+    postId = "", // post id (required)
+    auth = false
+}) => {
+    const fetch = auth ? fetchWithAuth : originalFetch;
+
     return fetch(`${API_ORIGIN}/post/${postId}`)
         .then(response => response.json());
 };
 
 export const getSearchResult = ({
-    query = "", // search query
+    query = "", // search query (required)
     forumAlias = "all", // search from forum
     school = "", // search by school name
     auth = false
@@ -82,8 +97,8 @@ export const getSearchResult = ({
 };
 
 export const login = ({
-    user = "",
-    password = "",
+    user = "", // username email (required)
+    password = "", // user password (required)
     auth = true
 }) => {
     const fetch = auth ? fetchWithAuth : originalFetch;
@@ -103,22 +118,28 @@ export const login = ({
         });
 };
 
-export const getStatus = (auth = true) => {
-    const fetch = auth ? fetchWithAuth : originalFetch;
+export const getStatus = (options = {
+    auth: true
+}) => {
+    const fetch = options.auth ? fetchWithAuth : originalFetch;
 
     return fetch(`${MEMBER_API}/status`)
         .then(response => response.json());
 };
 
-export const getTodayDcard = (auth = true) => {
-    const fetch = auth ? fetchWithAuth : originalFetch;
+export const getTodayDcard = (options = {
+    auth: true
+}) => {
+    const fetch = options.auth ? fetchWithAuth : originalFetch;
 
     return fetch(`${API_ORIGIN}/dcard`)
         .then(response => response.json());
 };
 
-export const getNotification = (auth = true) => {
-    const fetch = auth ? fetchWithAuth : originalFetch;
+export const getNotification = (options = {
+    auth: true
+}) => {
+    const fetch = options.auth ? fetchWithAuth : originalFetch;
 
     return fetch(`${MEMBER_API}/notification`)
         .then(response => response.json());
