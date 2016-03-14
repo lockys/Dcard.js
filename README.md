@@ -139,13 +139,13 @@ Please, see the [Wiki page](https://github.com/lockys/Dcard-Parser/wiki)
 
 Collaborators
 ==
-[lockys](https://github.com/lockys), [John-Lin](https://github.com/John-Lin)
+[lockys](https://github.com/lockys), [John-Lin](https://github.com/John-Lin), [Kai Hao](https://github.com/kevin940726)
 
 LICENSE
 ==
 The MIT License (MIT)
 
-Copyright (c) 2015 Hao-Weo Jeng, Che-Wei Lin
+Copyright (c) 2016 Hao-Weo Jeng, Che-Wei Lin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
