@@ -1,9 +1,10 @@
 import originalFetch from 'isomorphic-fetch';
 
-const API_ORIGIN = `https://www.dcard.tw/api`;
-const MEMBER_API = `${API_ORIGIN}/member`;
+export const API_ORIGIN = `https://www.dcard.tw/api`;
+export const MEMBER_API = `${API_ORIGIN}/member`;
 
-const DcardClient = function(originalFetch = originalFetch) {
+// create a new DcardClient which persist the cookie connection.
+export const DcardClient = function() {
     this.headers = new Headers();
     const XSRF_TOKEN_REGEX = /XSRF-TOKEN=([\w-]+);/;
 
@@ -31,14 +32,15 @@ const DcardClient = function(originalFetch = originalFetch) {
             });
     };
 };
+// default DcardClient
+const dc = new DcardClient();
 
-export const fetchWithAuth = new DcardClient(originalFetch).fetch;
-
-
+// get all the forum name available
 export const getAllForum = (options = {
-    auth: false
+    auth: false,
+    client: dc
 }) => {
-    const fetch = options.auth ? fetchWithAuth : originalFetch;
+    const fetch = options.auth ? options.client.fetch : originalFetch;
 
     return fetch(`${API_ORIGIN}/forum`)
         .then(response => response.json());
@@ -51,13 +53,14 @@ export const getPostsFromForum = (options = {}) => {
         pageTo: 1, // fetch until page
         orderBy: "popular", // order by "popular" or "recent"
         auth: false, // authentication enable or not
+        client: dc, // DcardClient instance
         ...options
     };
-    let { forum, pageFrom, pageTo, orderBy, auth } = options;
+    let { forum, pageFrom, pageTo, orderBy, auth, client } = options;
     pageTo = pageFrom < pageTo ? pageTo : pageFrom;
     orderBy = orderBy === "recent" ? "" : "popular";
 
-    const fetch = auth ? fetchWithAuth : originalFetch;
+    const fetch = auth ? client.fetch : originalFetch;
 
     const reqArray = new Array(pageTo - pageFrom + 1)
         .fill()
@@ -73,9 +76,10 @@ export const getPostsFromForum = (options = {}) => {
 
 export const getPostById = ({
     postId = "", // post id (required)
-    auth = false
+    auth = false,
+    client = dc
 }) => {
-    const fetch = auth ? fetchWithAuth : originalFetch;
+    const fetch = auth ? client.fetch : originalFetch;
 
     return fetch(`${API_ORIGIN}/post/${postId}`)
         .then(response => response.json());
@@ -85,9 +89,10 @@ export const getSearchResult = ({
     query = "", // search query (required)
     forumAlias = "all", // search from forum
     school = "", // search by school name
-    auth = false
+    auth = false,
+    client = dc
 }) => {
-    const fetch = auth ? fetchWithAuth : originalFetch;
+    const fetch = auth ? client.fetch : originalFetch;
 
     return fetch(`${API_ORIGIN}/search?search=${query}&forum_alias=${forumAlias}&school=${school}`)
         .then(response => response.json())
@@ -99,9 +104,10 @@ export const getSearchResult = ({
 export const login = ({
     user = "", // username email (required)
     password = "", // user password (required)
-    auth = true
+    auth = true,
+    client = dc
 }) => {
-    const fetch = auth ? fetchWithAuth : originalFetch;
+    const fetch = auth ? client.fetch : originalFetch;
 
     return fetch(`${MEMBER_API}/login`)
         .then(() =>
@@ -119,27 +125,30 @@ export const login = ({
 };
 
 export const getStatus = (options = {
-    auth: true
+    auth: true,
+    client: dc
 }) => {
-    const fetch = options.auth ? fetchWithAuth : originalFetch;
+    const fetch = options.auth ? options.client.fetch : originalFetch;
 
     return fetch(`${MEMBER_API}/status`)
         .then(response => response.json());
 };
 
 export const getTodayDcard = (options = {
-    auth: true
+    auth: true,
+    client: dc
 }) => {
-    const fetch = options.auth ? fetchWithAuth : originalFetch;
+    const fetch = options.auth ? options.client.fetch : originalFetch;
 
     return fetch(`${API_ORIGIN}/dcard`)
         .then(response => response.json());
 };
 
 export const getNotification = (options = {
-    auth: true
+    auth: true,
+    client: dc
 }) => {
-    const fetch = options.auth ? fetchWithAuth : originalFetch;
+    const fetch = options.auth ? options.client.fetch : originalFetch;
 
     return fetch(`${MEMBER_API}/notification`)
         .then(response => response.json());
@@ -150,10 +159,11 @@ export const getNotifications = (options = {}) => {
         number: 6, // display how many notifications at a time
         lastId: "", // last display notification id to chain
         auth: true,
+        client: dc,
         ...options
     };
     const { number, lastId, auth } = options;
-    const fetch = auth ? fetchWithAuth : originalFetch;
+    const fetch = auth ? options.client.dc : originalFetch;
 
     return fetch(`${API_ORIGIN}/notifications?n=${number}&last_id=${lastId}`)
         .then(response => response.json());

@@ -4,8 +4,10 @@
   "description": "Simple data retriever of Dcard for nodeJS",
   "main": "lib/dcard.js",
   "scripts": {
-    "test": "npm run build && mocha --compilers js:babel-register",
-    "build": "babel src -d lib"
+    "test": "mocha --compilers js:babel-register",
+    "build": "babel src -d lib",
+    "test-build": "npm run build && npm test",
+    "start": "babel-node src/dcard.js"
   },
   "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
   "contributors": [
@@ -32,7 +34,8 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "eslint": "^2.4.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "nock": "^7.2.2"
   },
   "repository": {
     "type": "git",
