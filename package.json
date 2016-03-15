@@ -2,26 +2,41 @@
   "name": "dcard",
   "version": "1.0.11",
   "description": "Simple data retriever of Dcard for nodeJS",
-  "main": "index.js",
+  "main": "lib/dcard.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-register",
+    "build": "babel src -d lib",
+    "test-build": "npm run build && npm test",
+    "start": "babel-node src/dcard.js"
   },
   "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
   "contributors": [
     {
       "name": "John Lin",
       "email": "linton.tw@gmail.com"
+    },
+    {
+      "name": "Kai Hao",
+      "email": "kevin830726@gmail.com"
     }
   ],
   "license": "MIT",
   "dependencies": {
-    "async": "^1.2.1",
-    "request": "^2.58.0"
+    "isomorphic-fetch": "^2.2.1"
   },
   "directories": {
     "doc": "doc"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "babel-register": "^6.7.2",
+    "chai": "^3.5.0",
+    "eslint": "^2.4.0",
+    "mocha": "^2.4.5",
+    "nock": "^7.2.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/lockys/DcardJS.git"
