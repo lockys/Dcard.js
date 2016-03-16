@@ -6,7 +6,7 @@ export const MEMBER_API = `${API_ORIGIN}/member`;
 // create a new DcardClient which persist the cookie connection.
 export const DcardClient = function() {
     this.headers = new Headers();
-    const XSRF_TOKEN_REGEX = /XSRF-TOKEN=([\w-]+);/;
+    const XSRF_TOKEN_REGEX = /XSRF-TOKEN=([\w-_]+);/;
 
     this.fetch = (url, options = { "headers": {} }) => {
         options = {
@@ -22,13 +22,14 @@ export const DcardClient = function() {
         return originalFetch(url, options)
             .then(response => {
                 const cookie = response.headers.getAll("set-cookie").join(';');
-                const xXsrfToken = cookie.match(XSRF_TOKEN_REGEX)[1];
-                this.headers.append("cookie", cookie);
-                this.headers.append("x-xsrf-token", xXsrfToken);
+                const xXsrfToken = cookie.match(XSRF_TOKEN_REGEX)[1]; // some error handling should be done here
+                this.headers.set("cookie", cookie);
+                this.headers.set("x-xsrf-token", xXsrfToken);
                 return response;
             })
             .catch(reason => {
-                console.log(reason);
+                console.error(reason);
+                return reason;
             });
     };
 };
