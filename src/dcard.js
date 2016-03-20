@@ -7,6 +7,32 @@ import { EventEmitter } from 'events';
 export const API_ORIGIN = `https://www.dcard.tw/api`;
 export const MEMBER_API = `${API_ORIGIN}/member`;
 
+function mapCookiesToObject(cookies) {
+    return cookies.join(';')
+        .split(';')
+        .map(pair => pair.trim().split('='))
+        .reduce( (object, pair) => ({
+            ...object,
+            [pair[0]]: pair[1]
+        }), {});
+}
+function mapObjectToCookies(object) {
+    return Object.keys(object)
+        .map(key => {
+            if (!key) return '';
+            else if (!object[key]) return key;
+            else return `${key}=${object[key]}`;
+        })
+        .join(';');
+}
+
+function setCookie(get, set) {
+    return mapObjectToCookies({
+        ...mapCookiesToObject(get),
+        ...mapCookiesToObject(set)
+    });
+}
+
 // create a new DcardClient which persist the cookie connection.
 export const DcardClient = function() {
     this.headers = new Headers();
@@ -26,7 +52,10 @@ export const DcardClient = function() {
 
         return originalFetch(url, options)
             .then(response => {
-                const cookie = response.headers.getAll("set-cookie").join(';');
+                const cookie = setCookie(
+                    this.headers.getAll("cookie"),
+                    response.headers.getAll("set-cookie")
+                );
                 const xXsrfToken = cookie.match(XSRF_TOKEN_REGEX)[1]; // some error handling should be done here
                 this.headers.set("x-xsrf-token", xXsrfToken);
                 this.headers.set("cookie", cookie);
