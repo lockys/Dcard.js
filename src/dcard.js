@@ -182,3 +182,13 @@ export const getNotifications = (options = {}) => {
     return fetch(`${API_ORIGIN}/notifications?n=${number}&last_id=${lastId}`)
         .then(response => response.json());
 };
+
+export const getFriends = (options = {
+    auth: true,
+    client: dc
+}) => {
+    const fetch = options.auth ? options.client.fetch : originalFetch;
+
+    return fetch(`${API_ORIGIN}/friends`)
+        .then(response => response.json());
+};
