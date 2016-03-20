@@ -1,4 +1,8 @@
 import originalFetch from 'isomorphic-fetch';
+import { EventEmitter } from 'events';
+
+/* some error handling for browser need to be done... */
+// const BROWSER_ENV = (typeof window) !== 'undefined';
 
 export const API_ORIGIN = `https://www.dcard.tw/api`;
 export const MEMBER_API = `${API_ORIGIN}/member`;
@@ -6,25 +10,27 @@ export const MEMBER_API = `${API_ORIGIN}/member`;
 // create a new DcardClient which persist the cookie connection.
 export const DcardClient = function() {
     this.headers = new Headers();
+    this.eventEmitter = new EventEmitter();
     const XSRF_TOKEN_REGEX = /XSRF-TOKEN=([\w-_]+);/;
 
     this.fetch = (url, options = { "headers": {} }) => {
+        this.eventEmitter.emit('beforeFetch');
         options = {
             ...options,
             headers: {
                 ...options.headers,
                 "cookie": this.headers.getAll("cookie").join(';'),
                 "x-xsrf-token": this.headers.get("x-xsrf-token")
-            },
-            "credentials": "include"
+            }
         };
 
         return originalFetch(url, options)
             .then(response => {
                 const cookie = response.headers.getAll("set-cookie").join(';');
                 const xXsrfToken = cookie.match(XSRF_TOKEN_REGEX)[1]; // some error handling should be done here
-                this.headers.set("cookie", cookie);
                 this.headers.set("x-xsrf-token", xXsrfToken);
+                this.headers.set("cookie", cookie);
+                this.eventEmitter.emit('afterFetch');
                 return response;
             })
             .catch(reason => {
@@ -33,8 +39,15 @@ export const DcardClient = function() {
             });
     };
 };
+
 // default DcardClient
-const dc = new DcardClient();
+let dc = new DcardClient();
+export { dc as defaultClient };
+
+// set default dcard client
+export const setDefaultClient = (client) => {
+    dc = client;
+};
 
 // get all the forum name available
 export const getAllForum = (options = {
