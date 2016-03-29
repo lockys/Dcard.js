@@ -12,68 +12,103 @@ Install
 ![npm info](https://nodei.co/npm/dcard.png?downloads=true)  
 
 ```
-$ npm install dcard
+$ npm install --save dcard@next
 ```
-Features
-==
-- Get an array of posts information of Dcard by forum name and page number of a forum  
-- Get an array of hot posts information ID of Dcard by forum name and page number of forum  
-- Get posts title and content of Dcard by a specified ID.
-- Get an array of global hot posts information of Dcard by page number
-- Get an array of posts content of Dcard by a given page number and forum.  
-- Search keyword in a specified forum.
 
-How to Use?
+Usage
 ==
-**1. Get an array of information of hot posts by given page number**
+### Import
+Import the method you need or import the whole package.
+```js
+// es6 (recommended)
+import { getAllForum, getTodayDcard } from 'dcard';
+// or import them all
+import Dcard from 'dcard';
+Dcard.getAllForum();
 
-```javascript
-// es6
-import { getPostIdByForum } from 'dcard';
 // es5
-var getPostIdByForum = require('dcard').getPostIdByForum;
-
-getPostIdByForum({
-    forum: "all",
-    pageFrom: "1",
-    pageTo: "1",
-    orderBy: "popular"
-}).then(posts => {
-    console.log(posts);
-});
+var Dcard = require('dcard');
+Dcard.getAllForum();
 ```
 
-**2. Get full information of a post by a post ID**
+### Return Value
+All the methods will return a es6 **Promise**,
+ use promise specific function to get your asynchronous response. See each method for more information.
 
-```javascript
-import { getPostById } from 'dcard';
+```js
+import { getAllForum } from 'dcard';
 
-getPostById(id).then(content => {
-    console.log(content);
-})
+getAllForum()
+    .then(response => {
+        console.log(response);
+    });
 ```
 
-**3. Search title of posts with keyword**
-```javascript
-import { getSearchResult } from 'dcard';
+### `DcardClient`:
+A class that you can create a new `DcardClient` for authentication usage. There is also a default client named `defaultClient` which is used in every authentication api calls when client is not specified.
+```js
+import { DcardClient } from 'dcard';
 
-getSearchResult({
-    query: "閃光",
-    forumAlias: "all",
-    school: ""
-}).then(posts => {
-    console.log(posts);
-})
+const dc = new DcardClient();
+
+const newClientOptions = {
+    auth: true,
+    client: dc
+};
 ```
 
-See more sample code snippets in the [example folder](https://github.com/lockys/DcardJS/tree/master/example).
+### Authentication
+All methods has two optional arguments: `auth` and `client`. When the api call is required for authentication, `auth` will be set to `true` and `client` will be set to `defaultClient`. Otherwise `auth` will be `false` and `client` will not have any usage.
 
-Simple demo prgorams using dcard.js
-==
-- [Dcard-Image-Downloader](https://github.com/lockys/Dcard-Image-Downloader)  
-  Get images in post of Dcard easily.
-- [Dcard-Post-Dumper](https://github.com/lockys/Dcard-Post-Dumper)  
-  Dump all post from Dcard into <post-id>.json.
+You can always change the two arguments in any methods whenever you like, when `auth` is set to `true`, it will simply wrap any `fetch` call inside the function to pass the cookie data. Passing another client will give you another `fetch` client with independent cookie data.
+
+You should be note that because of the security issue, all the authentication methods will not worked in browser environment. That is, when `auth` is set to true, the function will only work in server side (node.js) environment.
+
+### `getAllForum()`:
+Get all dcard current forum.
+
+### `getPostsFromForum(options)`:
+Get posts from specific forum. options and their default values are as follow.
+
+* `forum`: **"all"**. forum name, get from `getAllForum()`.
+* `pageFrom`: **1**. fetch from page...
+* `pageTo`: **1**. to page.
+* `orderBy`: **"popular"**. order by "popular" or "recent".
+* `auth`: **false**.
+* `client`: **defaultClient**.
+
+### `getPostById(options)`:
+Get post content by post id from `getPostsFromForum`, the `options` has only one required argument `postId`.
+
+### `getSearchResult(options)`:
+Search Dcard's posts and get the result. the options are as followed.
+* `query`: **required**. The search query keyword.
+* `forumAlias`: **"all"**. Forum name get from `getAllForum`.
+* `school`: _optional_. Search by school name.
+
+### `login(options)`: _auth_
+Login to your Dcard's account with the specified DcardClient.
+* `user`: **required**. Your email account.
+* `password`: **required**. Your password.
+
+### `getStatus()`: _auth_
+Get the current status of your account or client.
+
+### `getTodayDcard()`: _auth_
+Get your Dcard today.
+
+### `getNotification()`: _auth_
+Get your mail message notification.
+
+### `getNotifications(options)`: _auth_
+Get your notifications of posts. The options are as followed.
+* `number`: **6**. How many notifications get for a time.
+* `lastId`: _optional_. Specify last-seen notification id here to continue fetch notifications.
+
+### `getFriends()`: _auth_
+Get all your friends list.
+
+---
 
 Contribute
 ==
