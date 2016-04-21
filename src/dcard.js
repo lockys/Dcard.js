@@ -1,3 +1,5 @@
+import fs from 'fs';
+import mkdirp from 'mkdirp';
 import originalFetch from 'isomorphic-fetch';
 import { EventEmitter } from 'events';
 
@@ -220,4 +222,59 @@ export const getFriends = (options = {
 
     return fetch(`${API_ORIGIN}/friends`)
         .then(response => response.json());
+};
+
+
+export const downloadImagesFromPost = ({
+    postId = '',
+    outDir = './images',
+    authorOnly = false
+}) => {
+    getPostById({ postId })
+        .then(content => {
+            const group = JSON.stringify(authorOnly ? content.version[content.version.length - 1].content : content)
+                .match(/imgur.com\/(\w+)/g)
+                .map(uri => uri.match(/imgur.com\/(\w+)/)[1]);
+
+                if (group.length) {
+                    return new Promise( (resolve, reject) => {
+                        mkdirp(outDir, (err) => {
+                            if (err) reject(err);
+                            resolve(group);
+                        });
+                    });
+                }
+        })
+        .then(group => Promise.all(group.map(
+            fileName => originalFetch(`http://i.imgur.com/${fileName}.png`)
+                .then(img => img.body.pipe(fs.createWriteStream(`${outDir}/${fileName}.png`)))
+        )));
+};
+
+export const downloadImagesFromForum = (options = {}) => {
+    options = {
+        forum: "all", // forum name
+        pageFrom: 1, // fetch from page
+        pageTo: 1, // fetch until page
+        orderBy: "popular", // order by "popular" or "recent"
+        outDir: './images',
+        groupByPosts: false,
+        authorOnly: false,
+        auth: false, // authentication enable or not
+        client: dc, // DcardClient instance
+        ...options
+    };
+
+    return getPostsFromForum(options)
+        .then(posts =>
+            Promise.all(
+                posts.map(post =>
+                    downloadImagesFromPost({
+                        postId: post.id,
+                        ...options,
+                        outDir: options.outDir + (options.groupByPosts ? '/' + post.version.slice(-1)[0].title : '')
+                    })
+                )
+            )
+        );
 };

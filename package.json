@@ -22,7 +22,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "mkdirp": "^0.5.1"
   },
   "directories": {
     "doc": "doc"
