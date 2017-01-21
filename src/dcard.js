@@ -6,7 +6,7 @@ import { EventEmitter } from 'events';
 /* some error handling for browser need to be done... */
 // const BROWSER_ENV = (typeof window) !== 'undefined';
 
-export const API_ORIGIN = `https://www.dcard.tw/api`;
+export const API_ORIGIN = `https://www.dcard.tw/_api`;
 export const MEMBER_API = `${API_ORIGIN}/member`;
 
 function mapCookiesToObject(cookies) {
@@ -87,7 +87,7 @@ export const getAllForum = (options = {
 }) => {
     const fetch = options.auth ? options.client.fetch : originalFetch;
 
-    return fetch(`${API_ORIGIN}/forum`)
+    return fetch(`${API_ORIGIN}/forums`)
         .then(response => response.json());
 };
 
@@ -111,7 +111,7 @@ export const getPostsFromForum = (options = {}) => {
         .fill()
         .map( (cur, i) => i + pageFrom )
         .map(i =>
-            fetch(`${API_ORIGIN}/forum/${forum}/${i}/${orderBy}`)
+            fetch(`${API_ORIGIN}/forums/${forum}/${i}/${orderBy}`)
                 .then(response => response.json())
         );
 
