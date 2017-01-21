@@ -1,4 +1,4 @@
 {
-  "presets": ["latest", "stage-2"],
-  "plugins": ["transform-runtime"]  
+  "presets": ["latest", "stage-0"],
+  "plugins": ["transform-runtime"]
 }
