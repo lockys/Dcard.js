@@ -1,3 +1,3 @@
-export default function parseJSON(res) {
-  return res.json();
-}
+const parseJSON = res => res.json();
+
+export default parseJSON;
