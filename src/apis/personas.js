@@ -1,6 +1,6 @@
 import { pick } from 'lodash';
 import qs from 'qs';
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 const ENDPOINT = 'personas';
 const QUERY_PARAMS = ['before', 'after', 'limit', 'forum', 'content'];

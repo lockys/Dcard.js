@@ -1,5 +1,5 @@
 import qs from 'qs';
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const listNotification = options => (
   api(`notifications?${qs.stringify(options)}`)

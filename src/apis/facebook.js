@@ -1,5 +1,5 @@
 import { pick } from 'lodash';
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const getMyFacebook = () => (
   api('me/facebook')

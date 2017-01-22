@@ -1,4 +1,4 @@
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const listDarsysPosts = (id) => {
   if (typeof window === 'undefined') {

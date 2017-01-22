@@ -1,4 +1,4 @@
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const createIdentityCardPhoto = data => (
   api('me/identityCards',

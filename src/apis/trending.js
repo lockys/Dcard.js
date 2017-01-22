@@ -1,6 +1,6 @@
 import qs from 'qs';
 import { omit } from 'lodash';
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const getTrendingTags = (options) => {
   if (options.path && options.path.indexOf('/f') < 0) {

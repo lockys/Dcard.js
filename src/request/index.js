@@ -35,11 +35,13 @@ const DcardClient = (csrfToken = '', cookie = '') => ({
 
   updateCookies(cookies) {
     this.cookie = toPairs({
-      ...parseCookieString(this.cookies),
+      ...parseCookieString(this.cookie),
       ...parseCookieString(cookies),
     })
       .map(c => c.join('='))
       .join(';');
+
+    return this;
   },
 
   updateCSRFToken(token) {
@@ -68,7 +70,7 @@ const DcardClient = (csrfToken = '', cookie = '') => ({
 
 export const defaultClient = DcardClient();
 
-async function api(url, options) {
+export async function api(url, options) {
   const res = await fetch(
     `${HOST}/_api/${url}`,
     merge(
@@ -92,5 +94,3 @@ async function api(url, options) {
 
   return res;
 }
-
-export default api;

@@ -1,5 +1,5 @@
 import { pick } from 'lodash';
-import { api, filterError } from '../api';
+import { api, filterError } from '../request';
 
 export const updatePassword = data => (
   api('passwords',

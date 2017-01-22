@@ -1,6 +1,6 @@
 import { pick, omit } from 'lodash';
 import qs from 'qs';
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 import { listCollection } from './collections';
 
 export const listPost = (options) => {

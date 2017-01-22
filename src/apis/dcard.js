@@ -1,4 +1,4 @@
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const getDcard = () => (
   api('dcard')

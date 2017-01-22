@@ -1,5 +1,5 @@
 import { pick } from 'lodash';
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const createEmail = (id, data) => (
   api(`members/${id}/emails`,

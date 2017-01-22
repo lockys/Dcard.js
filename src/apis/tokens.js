@@ -1,4 +1,4 @@
-import { api, filterError } from '../api';
+import { api, filterError } from '../request';
 
 export const revokeTokens = () => (
   api('me/tokens',

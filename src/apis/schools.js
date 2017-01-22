@@ -1,5 +1,5 @@
 import qs from 'qs';
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const listSchool = options => (
   api(`schools?${qs.stringify(options)}`)

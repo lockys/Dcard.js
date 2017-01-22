@@ -1,6 +1,6 @@
 import qs from 'qs';
 import { omit } from 'lodash';
-import { api, filterError, parseJSON } from '../api';
+import { api, filterError, parseJSON } from '../request';
 
 export const listCollection = options => (
   api(`collections?${qs.stringify(options)}`)
