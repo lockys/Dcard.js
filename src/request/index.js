@@ -2,6 +2,9 @@ import fetch from 'isomorphic-fetch';
 import { merge, toPairs } from 'lodash';
 import { parse as parseCookieString } from 'cookie';
 
+export filterError from './filterError';
+export parseJSON from './parseJSON';
+
 const HOST = 'https://www.dcard.tw';
 
 function setupRequestOptions(options = {}) {
@@ -26,22 +29,21 @@ function setupRequestOptions(options = {}) {
   return option;
 }
 
-const DcardClient = (token, headers) => ({
-  csrfToken: token,
-  headers: headers || {},
-  cookies: '',
+const DcardClient = (csrfToken = '', cookie = '') => ({
+  csrfToken,
+  cookie,
 
   updateCookies(cookies) {
-    this.cookies = toPairs({
+    this.cookie = toPairs({
       ...parseCookieString(this.cookies),
       ...parseCookieString(cookies),
     })
-      .map(cookie => cookie.join('='))
+      .map(c => c.join('='))
       .join(';');
   },
 
-  updateCSRFToken(csrfToken) {
-    this.csrfToken = csrfToken;
+  updateCSRFToken(token) {
+    this.csrfToken = token;
 
     return this;
   },
@@ -58,13 +60,13 @@ const DcardClient = (token, headers) => ({
     }
 
     this.csrfToken = matches[1];
-    this.cookies = res.headers.getAll('set-cookie').join(';');
+    this.cookie = res.headers.getAll('set-cookie').join(';');
 
     return this;
   },
 });
 
-const defaultClient = DcardClient();
+export const defaultClient = DcardClient();
 
 async function api(url, options) {
   const res = await fetch(
@@ -74,7 +76,7 @@ async function api(url, options) {
       {
         headers: {
           'X-CSRF-Token': defaultClient.csrfToken || (await defaultClient.init()).csrfToken,
-          cookie: defaultClient.cookies,
+          cookie: defaultClient.cookie,
         },
       },
     ),
