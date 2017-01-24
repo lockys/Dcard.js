@@ -1,13 +1,26 @@
+/* @flow */
 import fetch from 'isomorphic-fetch';
 import { merge, toPairs } from 'lodash';
 import { parse as parseCookieString } from 'cookie';
+import _filterError from './filterError';
+import _parseJSON from './parseJSON';
 
-export filterError from './filterError';
-export parseJSON from './parseJSON';
+/* Because flow currently doesn't support the following syntax:
+ * export filterError from './filterError',
+ * so we did some workaround here. It should be changed soon.
+ * Ref: https://github.com/facebook/flow/issues/940
+ */
+export const filterError = _filterError;
+export const parseJSON = _parseJSON;
 
 const HOST = 'https://www.dcard.tw';
 
-function setupRequestOptions(options = {}) {
+/**
+ * Setup the fetch request options.
+ *
+ * @private
+ */
+function setupRequestOptions(options: Object = {}): Object {
   const option = merge({
     method: 'GET',
     headers: {
@@ -29,11 +42,20 @@ function setupRequestOptions(options = {}) {
   return option;
 }
 
-const DcardClient = (csrfToken = '', cookie = '') => ({
+/**
+ * The Dcard api wrapper client for handling the csrf token and cookies.
+ * Normally you won't be using this function directly.
+ */
+export const DcardClient = (csrfToken: string = '', cookie: string = ''): Object => ({
   csrfToken,
   cookie,
 
-  updateCookies(cookies) {
+  /**
+   * Update the client cookie.
+   *
+   * @private
+   */
+  updateCookies(cookies: string): DcardClient {
     this.cookie = toPairs({
       ...parseCookieString(this.cookie),
       ...parseCookieString(cookies),
@@ -44,13 +66,24 @@ const DcardClient = (csrfToken = '', cookie = '') => ({
     return this;
   },
 
-  updateCSRFToken(token) {
+  /**
+   * Update the csrf token.
+   *
+   * @private
+   */
+  updateCSRFToken(token: string): DcardClient {
     this.csrfToken = token;
 
     return this;
   },
 
-  init: async function init() {
+  /**
+   * Initial the client by getting the first cookie and csrk token
+   * after the first fetch to the server.
+   *
+   * @private
+   */
+  init: async function init(): Promise<DcardClient> {
     const res = await fetch(HOST);
     const body = await res.text();
 
@@ -68,9 +101,17 @@ const DcardClient = (csrfToken = '', cookie = '') => ({
   },
 });
 
-export const defaultClient = DcardClient();
+/**
+ * The default Dcard api client used implicitly.
+ * Normally you won't be using this function directly.
+ */
+export const defaultClient: DcardClient = DcardClient();
 
-export async function api(url, options) {
+/**
+ * The api function that make call to the Dcard server.
+ * Normally you won't be using this function directly.
+ */
+export async function api(url: string, options: Object): Promise<*> {
   const res = await fetch(
     `${HOST}/_api/${url}`,
     merge(

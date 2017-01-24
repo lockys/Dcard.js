@@ -4,10 +4,12 @@
   "description": "Simple data retriever of Dcard for nodeJS",
   "main": "lib/dcard.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register",
+    "test": "babel-node test/index.js",
     "build": "babel src -d lib",
     "test-build": "npm run build && npm test",
-    "start": "babel-node src/dcard.js"
+    "start": "babel-node src/dcard.js",
+    "documentation": "documentation serve src/dcard.js -w",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
   "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
   "contributors": [
@@ -33,15 +35,19 @@
   "devDependencies": {
     "babel-cli": "^6.6.5",
     "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.7.2",
+    "documentation": "^4.0.0-beta.18",
     "eslint": "3.13.0",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsdoc": "^2.4.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
-    "eslint-plugin-react": "6.9.0"
+    "eslint-plugin-react": "6.9.0",
+    "flow-bin": "^0.38.0"
   },
   "repository": {
     "type": "git",

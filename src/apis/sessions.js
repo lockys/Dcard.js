@@ -1,6 +1,13 @@
+/* @flow */
 import { api, filterError } from '../request';
 
-export const createSession = data => (
+/**
+ * Login to Dcard with email and password.
+ */
+export const createSession = (data: {
+  email: string,
+  password: string,
+}): Promise<Object> => (
   api('sessions',
     {
       method: 'POST',

@@ -1,19 +1,44 @@
+/* @flow */
 import { pick } from 'lodash';
 import { api, filterError, parseJSON } from '../request';
 
-export const getMe = () => (
+/**
+ * Get the profile of yourself.
+ */
+export const getMe = (): Promise<Object> => (
   api('me')
     .then(filterError)
     .then(parseJSON)
 );
 
-export const getPendingFields = () => (
+/**
+ * Get the pending fields.
+ */
+export const getPendingFields = (): Promise<Object> => (
   api('me/fields')
     .then(filterError)
     .then(parseJSON)
 );
 
-export const updateMe = data => (
+/**
+ * Change your profile.
+ */
+export const updateMe = (data: {
+  name: string,
+  birthday: string,
+  gender: string,
+  school: string,
+  department: string,
+  talent: string,
+  wantToTry: string,
+  exchange: string,
+  club: string,
+  lecture: string,
+  lovedCountry: string,
+  trouble: string,
+  affection: string,
+  identityCardId: string,
+}): Promise<Object> => (
   api('me',
     {
       method: 'put',
