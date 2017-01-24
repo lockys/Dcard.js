@@ -9,7 +9,8 @@
     "test-build": "npm run build && npm test",
     "start": "babel-node src/dcard.js",
     "documentation": "documentation serve src/dcard.js -w",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2"
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "lint": "eslint src/ && flow"
   },
   "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
   "contributors": [

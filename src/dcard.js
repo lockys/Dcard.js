@@ -24,4 +24,4 @@ export * as signup from './apis/signup';
 export * as tokens from './apis/tokens';
 export * as trending from './apis/trending';
 
-export { DcardClient, defaultClient } from './request';
+export { DcardClient, defaultClient, api } from './request';

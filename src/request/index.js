@@ -111,7 +111,7 @@ export const defaultClient: DcardClient = DcardClient();
  * The api function that make call to the Dcard server.
  * Normally you won't be using this function directly.
  */
-export async function api(url: string, options: Object): Promise<*> {
+export async function api(url: string, options?: Object): Promise<*> {
   const res = await fetch(
     `${HOST}/_api/${url}`,
     merge(

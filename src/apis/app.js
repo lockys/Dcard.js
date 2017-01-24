@@ -1,4 +1,4 @@
-/* @flow */
+/* @flow weak */
 import { pick } from 'lodash';
 import { api, filterError, parseJSON } from '../request';
 
