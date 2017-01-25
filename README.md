@@ -1,8 +1,16 @@
 dcard.js
 ==
+**Current State**  
+dcard.js is now being re-implemented in ES6 by our collaborator, [@kevin940726](https://github.com/kevin940726) on [`refactor-branch`](https://github.com/lockys/dcard.js/tree/refactor-branch).  
+It includes new features such as login, get today's card ... etc.  
+if you want to install this version of `dcard.js`
+```sh
+$ npm i dcard@next
+```
+
 https://www.npmjs.com/package/dcard  
-Simple a Dcard API wrapper for NodeJS.  
-dcard.js helps you retrieve post data from Dcard easily.  
+A simple Dcard API wrapper for NodeJS.  
+dcard.js helps you retrieve data of posts from Dcard easily.  
 `dcard.js` is **alpha** for now.  
 if you meet some errors, please update to latest version and file an issue.    
 Sorry for inconvenience.
@@ -118,17 +126,17 @@ Dcard API list
 ==
 Please, see the [Wiki page](https://github.com/lockys/Dcard-Parser/wiki)
 
-
-Collaborators
+Authors
 ==
-[lockys](https://github.com/lockys), [John-Lin](https://github.com/John-Lin),
-[Kai Hao](https://github.com/kevin940726)
+- [lockys](https://github.com/lockys)  
+- [John-Lin](https://github.com/John-Lin)
+- [Kai Hao](https://github.com/kevin940726)
 
 LICENSE
 ==
 The MIT License (MIT)
 
-Copyright (c) 2015 Hao-Weo Jeng, Che-Wei Lin
+Copyright (c) 2016 Hao-Weo Jeng, Che-Wei Lin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
