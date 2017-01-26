@@ -16,6 +16,7 @@ export const parseJSON = _parseJSON;
 const HOST = 'https://www.dcard.tw';
 
 /**
+ * @ignore
  * Setup the fetch request options.
  *
  * @private
@@ -43,6 +44,7 @@ function setupRequestOptions(options: Object = {}): Object {
 }
 
 /**
+ * @ignore
  * The Dcard api wrapper client for handling the csrf token and cookies.
  * Normally you won't be using this function directly.
  */
@@ -51,6 +53,7 @@ export const DcardClient = (csrfToken: string = '', cookie: string = ''): Object
   cookie,
 
   /**
+   * @ignore
    * Update the client cookie.
    *
    * @private
@@ -67,6 +70,7 @@ export const DcardClient = (csrfToken: string = '', cookie: string = ''): Object
   },
 
   /**
+   * @ignore
    * Update the csrf token.
    *
    * @private
@@ -78,6 +82,7 @@ export const DcardClient = (csrfToken: string = '', cookie: string = ''): Object
   },
 
   /**
+   * @ignore
    * Initial the client by getting the first cookie and csrk token
    * after the first fetch to the server.
    *
@@ -102,12 +107,14 @@ export const DcardClient = (csrfToken: string = '', cookie: string = ''): Object
 });
 
 /**
+ * @ignore
  * The default Dcard api client used implicitly.
  * Normally you won't be using this function directly.
  */
-export const defaultClient: DcardClient = DcardClient();
+export const DEFAULT_CLIENT: DcardClient = DcardClient();
 
 /**
+ * @ignore
  * The api function that make call to the Dcard server.
  * Normally you won't be using this function directly.
  */
@@ -118,8 +125,8 @@ export async function api(url: string, options?: Object): Promise<*> {
       setupRequestOptions(options),
       {
         headers: {
-          'X-CSRF-Token': defaultClient.csrfToken || (await defaultClient.init()).csrfToken,
-          cookie: defaultClient.cookie,
+          'X-CSRF-Token': DEFAULT_CLIENT.csrfToken || (await DEFAULT_CLIENT.init()).csrfToken,
+          cookie: DEFAULT_CLIENT.cookie,
         },
       },
     ),
@@ -128,10 +135,10 @@ export async function api(url: string, options?: Object): Promise<*> {
   const csrfToken = res.headers.get('X-CSRF-Token');
 
   if (csrfToken) {
-    defaultClient.updateCSRFToken(csrfToken);
+    DEFAULT_CLIENT.updateCSRFToken(csrfToken);
   }
 
-  defaultClient.updateCookies(res.headers.getAll('set-cookie').join(';'));
+  DEFAULT_CLIENT.updateCookies(res.headers.getAll('set-cookie').join(';'));
 
   return res;
 }

@@ -3,6 +3,23 @@ import qs from 'qs';
 import { api, filterError, parseJSON } from '../request';
 import { listCollection } from './collections';
 
+/**
+* List Posts of a forum
+* @param {object} options
+* @param {String} options.forum vehicle for instance, please refer to asset/forumList.json to get forum name.
+* @param {String} options.before List posts before a post id
+* @param {String} options.after List posts after a post id
+* @param {Boolean} options.popular true | false
+* @example
+*  const postOpt = {
+*    forum: 'vehicle',
+*    popular: false,
+*    before: 225687456,
+*  };
+*  api.posts.listPost(postOpt).then((res) => {
+*    console.log(res);
+*  });
+*/
 export const listPost = (options) => {
   const url = options.forum ? `forums/${options.forum}/posts` : 'posts';
 
@@ -11,7 +28,9 @@ export const listPost = (options) => {
     .then(parseJSON)
     .then((res) => {
       // event article
-      if (!options.popular || options.after || options.before) return res;
+      if (!options.popular || options.after || options.before) {
+        return res;
+      }
 
       let angels = [];
       return res.reduce(
@@ -29,6 +48,7 @@ export const listPost = (options) => {
 
           return p;
         },
+
         [],
       ).concat(angels);
     });

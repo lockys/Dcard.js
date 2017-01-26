@@ -1,21 +1,10 @@
 dcard.js
 ==
-**Current State**  
-dcard.js is now being re-implemented in ES6 by our collaborator, [@kevin940726](https://github.com/kevin940726) on [`refactor-branch`](https://github.com/lockys/dcard.js/tree/refactor-branch).  
-It includes new features such as login, get today's card ... etc.  
-if you want to install this version of `dcard.js`
-```sh
-$ npm i dcard@next
-```
-
 https://www.npmjs.com/package/dcard  
-A simple Dcard API wrapper for NodeJS.  
-dcard.js helps you retrieve data of posts from Dcard easily.  
-`dcard.js` is **alpha** for now.  
-if you meet some errors, please update to latest version and file an issue.    
-Sorry for inconvenience.
+`dcard.js` is a unofficial API wrapper of [Dcard](https://www.dcard.tw) for developer.  
+It supports login, get posts, get card of a account ...etc.
 
-Install
+Installation
 ==
 ![npm info](https://nodei.co/npm/dcard.png?downloads=true)  
 
@@ -29,102 +18,24 @@ Usage
 Import the method you need or import the whole package.
 ```js
 // es6 (recommended)
-import { getAllForum, getTodayDcard } from 'dcard';
+import { posts, dcard } from 'dcard';
+
 // or import them all
-import Dcard from 'dcard';
-Dcard.getAllForum();
+import * as api from 'dcard';
 
 // es5
-var Dcard = require('dcard');
-Dcard.getAllForum();
+var api = require('dcard');
 ```
-
-### Return Value
-All the methods will return a es6 **Promise**,
- use promise specific function to get your asynchronous response. See each method for more information.
-
-```js
-import { getAllForum } from 'dcard';
-
-getAllForum()
-    .then(response => {
-        console.log(response);
-    });
-```
-
-### `DcardClient`:
-A class that you can create a new `DcardClient` for authentication usage. There is also a default client named `defaultClient` which is used in every authentication api calls when client is not specified.
-```js
-import { DcardClient } from 'dcard';
-
-const dc = new DcardClient();
-
-const newClientOptions = {
-    auth: true,
-    client: dc
-};
-```
-
-### Authentication
-All methods has two optional arguments: `auth` and `client`. When the api call is required for authentication, `auth` will be set to `true` and `client` will be set to `defaultClient`. Otherwise `auth` will be `false` and `client` will not have any usage.
-
-You can always change the two arguments in any methods whenever you like, when `auth` is set to `true`, it will simply wrap any `fetch` call inside the function to pass the cookie data. Passing another client will give you another `fetch` client with independent cookie data.
-
-You should be note that because of the security issue, all the authentication methods will not worked in browser environment. That is, when `auth` is set to true, the function will only work in server side (node.js) environment.
-
-### `getAllForum()`:
-Get all dcard current forum.
-
-### `getPostsFromForum(options)`:
-Get posts from specific forum. options and their default values are as follow.
-
-* `forum`: **"all"**. forum name, get from `getAllForum()`.
-* `pageFrom`: **1**. fetch from page...
-* `pageTo`: **1**. to page.
-* `orderBy`: **"popular"**. order by "popular" or "recent".
-* `auth`: **false**.
-* `client`: **defaultClient**.
-
-### `getPostById(options)`:
-Get post content by post id from `getPostsFromForum`, the `options` has only one required argument `postId`.
-
-### `getSearchResult(options)`:
-Search Dcard's posts and get the result. the options are as followed.
-* `query`: **required**. The search query keyword.
-* `forumAlias`: **"all"**. Forum name get from `getAllForum`.
-* `school`: _optional_. Search by school name.
-
-### `login(options)`: _auth_
-Login to your Dcard's account with the specified DcardClient.
-* `user`: **required**. Your email account.
-* `password`: **required**. Your password.
-
-### `getStatus()`: _auth_
-Get the current status of your account or client.
-
-### `getTodayDcard()`: _auth_
-Get your Dcard today.
-
-### `getNotification()`: _auth_
-Get your mail message notification.
-
-### `getNotifications(options)`: _auth_
-Get your notifications of posts. The options are as followed.
-* `number`: **6**. How many notifications get for a time.
-* `lastId`: _optional_. Specify last-seen notification id here to continue fetch notifications.
-
-### `getFriends()`: _auth_
-Get all your friends list.
-
+You can refer to [example](/example) for the simple example.
 ---
 
-Contribute
+Contributions
 ==
 Feel free to pull request, open issues or give us suggestions to make this project better :-)
 
-Dcard API list
+Documentations
 ==
-Please, see the [Wiki page](https://github.com/lockys/Dcard-Parser/wiki)
+Check out the [documentation page](/doc), but the doc is still in building.
 
 Authors
 ==
@@ -136,7 +47,7 @@ LICENSE
 ==
 The MIT License (MIT)
 
-Copyright (c) 2016 Hao-Weo Jeng, Che-Wei Lin
+Copyright (c) 2016 Hao-Weo Jeng, Che-Wei Lin, Kai Hao
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

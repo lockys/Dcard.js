@@ -1,4 +1,5 @@
 # Dcard API
+[NOTE!]THIS IS OLD API LIST
 
 > A list of [Dcard](https://www.dcard.tw) API
 

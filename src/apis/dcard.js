@@ -1,11 +1,26 @@
 import { api, filterError, parseJSON } from '../request';
 
+/**
+ * Get today's Dcard.
+ * @returns {json}
+ */
 export const getDcard = () => (
   api('dcard')
     .then(filterError)
     .then(parseJSON)
 );
 
+/**
+ * Send invitation to today's Dcard.
+ * @param {object} firstMessageForm
+ * @param {string} firstMessageForm.firstMessage The message that you want to say.
+ * @returns {json}
+ * @example
+ * const message = { firstMessage: 'Hello!' };
+ * api.dcard.acceptDcard(message).then((res) => {
+ *   console.log(res);
+ * });
+ */
 export const acceptDcard = firstMessageForm => (
   api('dcard/accept',
     {
@@ -17,6 +32,12 @@ export const acceptDcard = firstMessageForm => (
     .then(parseJSON)
 );
 
+/**
+ * Reort Dcard.
+ * @param {Object} reportForm
+ * @param {String} reportForm.reason {reason: 'profileEmpty | profileSexual | photoNotReal | photoNotClear | photoNudity | photoOthers'}
+ * @returns {json}
+ */
 export const reportDcard = reportForm => (
   api('dcard/reports',
     {
@@ -29,6 +50,10 @@ export const reportDcard = reportForm => (
     .catch(res => res.response.status === 403)
 );
 
+/**
+ * Get dcard's status
+ * @returns {json}
+ */
 export const getDcardStatus = () => (
   api('dcard/status')
     .then(filterError)

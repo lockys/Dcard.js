@@ -1,3 +1,7 @@
+/**
+  @ignore
+  Exported API interface for the developers.
+**/
 export * as app from './apis/app';
 export * as collections from './apis/collections';
 export * as comments from './apis/comments';
@@ -23,5 +27,3 @@ export * as sessions from './apis/sessions';
 export * as signup from './apis/signup';
 export * as tokens from './apis/tokens';
 export * as trending from './apis/trending';
-
-export { DcardClient, defaultClient, api } from './request';

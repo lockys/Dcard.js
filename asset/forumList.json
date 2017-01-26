@@ -1,0 +1,1495 @@
+[
+    {
+        "alias": "timecapsule",
+        "name": "時光膠囊",
+        "subcategories": []
+    },
+    {
+        "alias": "vehicle",
+        "name": "汽機車",
+        "subcategories": [
+            "保養",
+            "改裝",
+            "購車選擇",
+            "配件部品",
+            "車禍處理"
+        ]
+    },
+    {
+        "alias": "language",
+        "name": "語言",
+        "subcategories": [
+            "英語",
+            "日語",
+            "韓語",
+            "歐語"
+        ]
+    },
+    {
+        "alias": "freshman",
+        "name": "新生季",
+        "subcategories": []
+    },
+    {
+        "alias": "father",
+        "name": "父親節",
+        "subcategories": []
+    },
+    {
+        "alias": "relationship",
+        "name": "感情",
+        "subcategories": [
+            "曖昧",
+            "告白",
+            "閃光",
+            "劈腿",
+            "失戀",
+            "分手"
+        ]
+    },
+    {
+        "alias": "girl",
+        "name": "女孩",
+        "subcategories": [
+            "網購",
+            "髮型",
+            "心事"
+        ]
+    },
+    {
+        "alias": "makeup",
+        "name": "美妝",
+        "subcategories": [
+            "底妝",
+            "眼妝",
+            "唇彩",
+            "保養",
+            "情報"
+        ]
+    },
+    {
+        "alias": "dressup",
+        "name": "穿搭",
+        "subcategories": [
+            "日常",
+            "正式",
+            "情侶",
+            "鞋款"
+        ]
+    },
+    {
+        "alias": "funny",
+        "name": "有趣",
+        "subcategories": []
+    },
+    {
+        "alias": "rainbow",
+        "name": "彩虹",
+        "subcategories": [
+            "心情",
+            "議題"
+        ]
+    },
+    {
+        "alias": "marvel",
+        "name": "靈異",
+        "subcategories": [
+            "親身經歷",
+            "海龜湯",
+            "連載"
+        ]
+    },
+    {
+        "alias": "boy",
+        "name": "男孩",
+        "subcategories": [
+            "表特",
+            "軍旅",
+            "心事"
+        ]
+    },
+    {
+        "alias": "horoscopes",
+        "name": "星座",
+        "subcategories": [
+            "占卜",
+            "心理測驗",
+            "白羊",
+            "金牛",
+            "雙子",
+            "巨蟹",
+            "獅子",
+            "處女",
+            "天秤",
+            "天蠍",
+            "射手",
+            "摩羯",
+            "水瓶",
+            "雙魚"
+        ]
+    },
+    {
+        "alias": "food",
+        "name": "美食",
+        "subcategories": [
+            "食譜",
+            "食記",
+            "評比",
+            "超商"
+        ]
+    },
+    {
+        "alias": "mood",
+        "name": "心情",
+        "subcategories": []
+    },
+    {
+        "alias": "pet",
+        "name": "寵物",
+        "subcategories": [
+            "協尋",
+            "狗",
+            "貓",
+            "小動物",
+            "爬蟲",
+            "水族"
+        ]
+    },
+    {
+        "alias": "handicrafts",
+        "name": "手作",
+        "subcategories": [
+            "手創",
+            "廢物利用",
+            "繪畫",
+            "紙藝",
+            "鋼筆",
+            "工藝"
+        ]
+    },
+    {
+        "alias": "trending",
+        "name": "時事",
+        "subcategories": [
+            "新聞",
+            "討論",
+            "爆料",
+            "社論"
+        ]
+    },
+    {
+        "alias": "talk",
+        "name": "閒聊",
+        "subcategories": [
+            "理財",
+            "醫療",
+            "法律"
+        ]
+    },
+    {
+        "alias": "acg",
+        "name": "動漫",
+        "subcategories": [
+            "情報",
+            "心得",
+            "推坑",
+            "腐",
+            "同人",
+            "COS"
+        ]
+    },
+    {
+        "alias": "game",
+        "name": "遊戲",
+        "subcategories": [
+            "LOL",
+            "OW",
+            "手遊"
+        ]
+    },
+    {
+        "alias": "pokemon",
+        "name": "寶可夢",
+        "subcategories": []
+    },
+    {
+        "alias": "movie",
+        "name": "影劇",
+        "subcategories": [
+            "情報",
+            "電影",
+            "臺灣",
+            "韓國",
+            "歐美",
+            "日本",
+            "中國"
+        ]
+    },
+    {
+        "alias": "photography",
+        "name": "攝影",
+        "subcategories": [
+            "底片",
+            "手機",
+            "單眼",
+            "器材"
+        ]
+    },
+    {
+        "alias": "3c",
+        "name": "3C",
+        "subcategories": [
+            "電腦",
+            "手機",
+            "音響",
+            "教學"
+        ]
+    },
+    {
+        "alias": "job",
+        "name": "工作",
+        "subcategories": [
+            "徵才",
+            "經驗分享",
+            "職業介紹",
+            "勞工權益"
+        ]
+    },
+    {
+        "alias": "music",
+        "name": "音樂",
+        "subcategories": [
+            "創作",
+            "東洋",
+            "西洋",
+            "樂器"
+        ]
+    },
+    {
+        "alias": "sport",
+        "name": "運動",
+        "subcategories": [
+            "健身",
+            "籃球",
+            "棒球",
+            "排球"
+        ]
+    },
+    {
+        "alias": "travel",
+        "name": "旅遊",
+        "subcategories": [
+            "臺灣",
+            "日韓",
+            "亞洲",
+            "歐美"
+        ]
+    },
+    {
+        "alias": "mother",
+        "name": "母親節",
+        "subcategories": []
+    },
+    {
+        "alias": "book",
+        "name": "書籍",
+        "subcategories": [
+            "教科書",
+            "小說"
+        ]
+    },
+    {
+        "alias": "studyabroad",
+        "name": "留學",
+        "subcategories": [
+            "申請",
+            "生活",
+            "考試",
+            "打工度假"
+        ]
+    },
+    {
+        "alias": "literature",
+        "name": "詩文",
+        "subcategories": [
+            "新詩",
+            "散文",
+            "小說",
+            "詞創"
+        ]
+    },
+    {
+        "alias": "exam",
+        "name": "考試",
+        "subcategories": [
+            "轉學考",
+            "國考",
+            "重考",
+            "考古題"
+        ]
+    },
+    {
+        "alias": "course",
+        "name": "課程",
+        "subcategories": []
+    },
+    {
+        "alias": "bugreport",
+        "name": "臨時回報",
+        "subcategories": []
+    },
+    {
+        "alias": "ecofriendly",
+        "name": "無痕飲食",
+        "subcategories": []
+    },
+    {
+        "alias": "sex",
+        "name": "西斯",
+        "subcategories": [
+            "創作",
+            "知識",
+            "圖文"
+        ]
+    },
+    {
+        "alias": "dcard",
+        "name": "Dcard",
+        "subcategories": []
+    },
+    {
+        "alias": "whysoserious",
+        "name": "廢文",
+        "subcategories": []
+    },
+    {
+        "alias": "graduate",
+        "name": "畢業季",
+        "subcategories": []
+    },
+    {
+        "alias": "ntu",
+        "name": "臺灣大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nccu",
+        "name": "政治大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nctu",
+        "name": "交通大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tku",
+        "name": "淡江大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ndhu",
+        "name": "東華大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ncku",
+        "name": "成功大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntut",
+        "name": "北科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "fju",
+        "name": "輔仁大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntnu",
+        "name": "師範大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nknu",
+        "name": "高雄師範大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ncue",
+        "name": "彰化師範大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ncu",
+        "name": "中央大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "fcu",
+        "name": "逢甲大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nthu",
+        "name": "清華大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ncnu",
+        "name": "暨南大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "thu",
+        "name": "東海大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nkfust",
+        "name": "高雄第一科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntust",
+        "name": "台科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nchu",
+        "name": "中興大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "yzu",
+        "name": "元智大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nuu",
+        "name": "聯合大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntou",
+        "name": "海洋大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nsysu",
+        "name": "中山大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntpu",
+        "name": "臺北大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cpu",
+        "name": "中央警察大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ccu",
+        "name": "中正大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "usc",
+        "name": "實踐大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ym",
+        "name": "陽明大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntua",
+        "name": "臺灣藝術大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "shu",
+        "name": "世新大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntue",
+        "name": "臺北教育大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tnua",
+        "name": "臺北藝術大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "utaipei",
+        "name": "臺北市立大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "pccu",
+        "name": "文化大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "scu",
+        "name": "東吳大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ncyu",
+        "name": "嘉義大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nuk",
+        "name": "高雄大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nutc",
+        "name": "中科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntunhs",
+        "name": "國北護",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "isu",
+        "name": "義守大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cgu",
+        "name": "長庚大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tmu",
+        "name": "臺北醫學大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cycu",
+        "name": "中原大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "csmu",
+        "name": "中山醫學大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "wzu",
+        "name": "文藻外語大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "kuas",
+        "name": "高應大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cgust",
+        "name": "長庚科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ncut",
+        "name": "勤益科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "mcu",
+        "name": "銘傳大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "niu",
+        "name": "宜蘭大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nfu",
+        "name": "虎尾科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nhcue",
+        "name": "新竹教育大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ttu",
+        "name": "大同大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntub",
+        "name": "臺北商業大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntcu",
+        "name": "臺中教育大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nptu",
+        "name": "屏東大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "pu",
+        "name": "靜宜大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nkmu",
+        "name": "高雄海洋科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cyut",
+        "name": "朝陽科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ndu",
+        "name": "國防大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "stust",
+        "name": "南臺科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nkuht",
+        "name": "高雄餐旅大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cmu",
+        "name": "中國醫藥大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cjcu",
+        "name": "長榮大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "npust",
+        "name": "屏科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "mcut",
+        "name": "明志科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "asia",
+        "name": "亞洲大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "uch",
+        "name": "健行科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "stu",
+        "name": "樹德科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "au",
+        "name": "真理大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cnu",
+        "name": "嘉南藥理大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "kmu",
+        "name": "高雄醫學大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "must",
+        "name": "明新科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nttu",
+        "name": "臺東大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tut",
+        "name": "台南應用科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nqu",
+        "name": "金門大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "dyu",
+        "name": "大葉大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nhu",
+        "name": "南華大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ltu",
+        "name": "嶺東科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "fy",
+        "name": "輔英科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cute",
+        "name": "中國科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tcust",
+        "name": "慈濟科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tcu",
+        "name": "慈濟大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "chihlee",
+        "name": "致理科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "knu",
+        "name": "開南大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "hk",
+        "name": "弘光科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nutn",
+        "name": "臺南大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "chu",
+        "name": "中華大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "takming",
+        "name": "德明財經科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "just",
+        "name": "景文科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "delete",
+        "name": "刪文",
+        "subcategories": []
+    },
+    {
+        "alias": "lhu",
+        "name": "龍華科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "yuntech",
+        "name": "國立雲林科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "csu",
+        "name": "正修科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "feu",
+        "name": "遠東科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "wfu",
+        "name": "吳鳳科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ctust",
+        "name": "中臺科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "npu",
+        "name": "國立澎湖科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ksu",
+        "name": "崑山科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "twu",
+        "name": "環球科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "hwai",
+        "name": "中華醫事科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ocu",
+        "name": "僑光科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntupes",
+        "name": "臺灣體育運動大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "hwu",
+        "name": "醒吾科技大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "hfu",
+        "name": "華梵大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "fgu",
+        "name": "佛光大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "vnu",
+        "name": "萬能科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "oit",
+        "name": "亞東技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cku",
+        "name": "經國管理暨健康學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ctu",
+        "name": "建國科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tnu",
+        "name": "東南科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nkut",
+        "name": "南開科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "sju",
+        "name": "聖約翰科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "mdu",
+        "name": "明道大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "meiho",
+        "name": "美和科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tnnua",
+        "name": "臺南藝術大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ukn",
+        "name": "康寧大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ydu",
+        "name": "育達科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "kyu",
+        "name": "高苑科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cust",
+        "name": "中華科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ypu",
+        "name": "元培醫事科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntsu",
+        "name": "國立體育大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tajen",
+        "name": "大仁科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tsu",
+        "name": "台灣首府大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "hcu",
+        "name": "玄奘大學",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "nju",
+        "name": "南榮科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ccut",
+        "name": "中州科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "hwh",
+        "name": "華夏科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "hust",
+        "name": "修平科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tust",
+        "name": "大華科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tpcu",
+        "name": "臺北城市科大",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "mmc",
+        "name": "馬偕醫學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "dlit",
+        "name": "德霖技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tcmt",
+        "name": "台北海洋技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tiit",
+        "name": "南亞技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tcpa",
+        "name": "臺灣戲曲學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "lit",
+        "name": "黎明技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "toko",
+        "name": "稻江科技暨管理學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "fotech",
+        "name": "和春技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "dila",
+        "name": "法鼓文理學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tht",
+        "name": "臺灣觀光學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "apic",
+        "name": "亞太創意技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "fit",
+        "name": "蘭陽技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ttc",
+        "name": "大同技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "dahan",
+        "name": "大漢技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cit",
+        "name": "崇右技術學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tf",
+        "name": "東方設計學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "kmvs",
+        "name": "高美醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ntin",
+        "name": "國立臺南護理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "szmc",
+        "name": "樹人醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "yuhing",
+        "name": "育英醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "smc",
+        "name": "聖母醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "cjc",
+        "name": "崇仁醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "knjc",
+        "name": "康寧醫護暨管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "tzuhui",
+        "name": "慈惠醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ctcn",
+        "name": "耕莘健康管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "hsc",
+        "name": "新生醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "mhchcm",
+        "name": "敏惠醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "mkc",
+        "name": "馬偕醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "jente",
+        "name": "仁德醫護管理專科學校",
+        "subcategories": [
+            "課程評價"
+        ]
+    },
+    {
+        "alias": "ndmctsgh",
+        "name": "國防醫學院",
+        "subcategories": [
+            "課程評價"
+        ]
+    }
+]
