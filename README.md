@@ -27,7 +27,6 @@ import * as api from 'dcard';
 var api = require('dcard');
 ```
 You can refer to [example](/example) for the simple example.
----
 
 Contributions
 ==
