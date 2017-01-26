@@ -35,3 +35,9 @@ const postOpt = {
 api.posts.listPost(postOpt).then((res) => {
   console.log(res);
 });
+
+const postId = 225681815;
+const options = {};
+api.comments.listComments(postId, options).then((res) => {
+  console.log(res);
+});

@@ -4,6 +4,10 @@ import { api, filterError, parseJSON } from '../request';
 
 /**
  * Get the profile of yourself.
+ * @example
+ * api.app.getMe().then((res) => {
+ *  console.log(res);
+ * });
  */
 export const getMe = (): Promise<Object> => (
   api('me')
@@ -13,6 +17,10 @@ export const getMe = (): Promise<Object> => (
 
 /**
  * Get the pending fields.
+ * @example
+ * api.app.getPendingFields().then((res) => {
+ *  console.log(res);
+ * });
  */
 export const getPendingFields = (): Promise<Object> => (
   api('me/fields')
@@ -21,7 +29,12 @@ export const getPendingFields = (): Promise<Object> => (
 );
 
 /**
- * Change your profile.
+ * Update your profile.
+ * @example
+ * const data = {...}; //key listed above could be used.
+ * api.app.updateMe(data).then((res) => {
+ *  console.log(res);
+ * });
  */
 export const updateMe = (data: {
   name: string,

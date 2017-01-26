@@ -2,6 +2,10 @@ import { api, filterError, parseJSON } from '../request';
 
 /**
  * Get today's Dcard.
+ * @example
+ * api.dcard.getDcard().then((res) => {
+ *  console.log(res);
+ * });
  * @returns {json}
  */
 export const getDcard = () => (
