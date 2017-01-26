@@ -9,7 +9,7 @@ Installation
 ![npm info](https://nodei.co/npm/dcard.png?downloads=true)  
 
 ```
-$ npm install --save dcard@next
+$ npm install --save dcard
 ```
 
 Usage
