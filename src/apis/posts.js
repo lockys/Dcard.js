@@ -11,14 +11,14 @@ import { listCollection } from './collections';
 * @param {String} options.after List posts after a post id
 * @param {Boolean} options.popular true | false
 * @example
-*  const postOpt = {
-*    forum: 'vehicle',
-*    popular: false,
-*    before: 225687456,
-*  };
-*  api.posts.listPost(postOpt).then((res) => {
-*    console.log(res);
-*  });
+* const options = {
+*   forum: 'vehicle',
+*   popular: false,
+*   before: 225687456,
+* };
+* api.posts.listPost(options).then((res) => {
+*   console.log(res);
+* });
 */
 export const listPost = (options) => {
   const url = options.forum ? `forums/${options.forum}/posts` : 'posts';
@@ -54,18 +54,53 @@ export const listPost = (options) => {
     });
 };
 
+/**
+* List your posts. login required.
+* @param {object} options
+* @param {String} options.before List posts before a post id
+* @example
+* const options = {
+*   before: 225687456,
+* };
+* api.posts.listMyPost(options).then((res) => {
+*   console.log(res);
+* });
+*/
 export const listMyPost = options => (
   api(`me/posts?${qs.stringify(options)}`)
     .then(filterError)
     .then(parseJSON)
 );
 
+/**
+* List your subscriptions. login required.
+* @param {object} options
+* @param {Boolean} options.popular true | false
+* @example
+* const options = {
+*   popular: true,
+* };
+* api.posts.listMySubscription(options).then((res) => {
+*   console.log(res);
+* });
+*/
 export const listMySubscription = options => (
   api(`me/subscriptions?${qs.stringify(options)}`)
     .then(filterError)
     .then(parseJSON)
 );
 
+/**
+* Get content of a specified post id.
+* @param {object} options {} is allowed
+* @param {Number} id post id
+* @example
+* const postId = 225688036;
+* const options = {};
+* api.posts.getPost(postId, options).then((res) => {
+*   console.log(res);
+* });
+*/
 export const getPost = (id, options) => (
   api(`posts/${id}?${qs.stringify(options)}`)
     .then(filterError)
@@ -188,6 +223,18 @@ export const reportPost = (id, data) => (
     .catch(res => res.response.status === 403)
 );
 
+/**
+* Search posts by specified keyword.
+* @param {object} options
+* @param {string} options.query search keyword
+* @example
+* const options = {
+*   query: '愛情',
+* };
+* api.posts.searchPost(options).then((res) => {
+*   console.log(res);
+* });
+*/
 export const searchPost = options => (
   api(`search/posts?${qs.stringify(options)}`)
     .then(filterError)

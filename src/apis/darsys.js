@@ -1,5 +1,14 @@
 import { api, filterError, parseJSON } from '../request';
 
+/**
+* "You may also like these posts" based on a post id
+* @param {Number} id posd id
+* @example
+* const id = 225688036;
+* api.darsys.listDarsysPosts(id).then((res) => {
+*   console.log(res);
+* });
+*/
 export const listDarsysPosts = (id) => {
   if (typeof window === 'undefined') {
     return {
@@ -13,6 +22,10 @@ export const listDarsysPosts = (id) => {
     .then(parseJSON);
 };
 
+/**
+* @ignore
+* unknown
+*/
 export const sendDarsysEvent = body => (
   api('darsys/bilanx',
     {
