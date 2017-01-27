@@ -5,7 +5,7 @@ import { api, filterError, parseJSON } from '../request';
 /**
  * Get the profile of yourself.
  * @example
- * api.app.getMe().then((res) => {
+ * getMe().then((res) => {
  *  console.log(res);
  * });
  */
@@ -18,7 +18,7 @@ export const getMe = (): Promise<Object> => (
 /**
  * Get the pending fields.
  * @example
- * api.app.getPendingFields().then((res) => {
+ * getPendingFields().then((res) => {
  *  console.log(res);
  * });
  */
@@ -32,7 +32,7 @@ export const getPendingFields = (): Promise<Object> => (
  * Update your profile.
  * @example
  * const data = {...}; //key listed above could be used.
- * api.app.updateMe(data).then((res) => {
+ * updateMe(data).then((res) => {
  *  console.log(res);
  * });
  */

@@ -11,7 +11,7 @@ import { api, filterError, parseJSON } from '../request';
 * @example
 * const postId = 225688036;
 * const options = {};
-* api.comments.listComments(postId, options).then((res) => {
+* listComments(postId, options).then((res) => {
 *   console.log(res);
 * });
 */

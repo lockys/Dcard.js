@@ -1,5 +1,4 @@
 const api = require('../lib/dcard');
-const fs = require('fs');
 /**
 * Login into Dcard using email and password.
 * The Accessibiliy function here should be required to login in.
@@ -21,23 +20,4 @@ api.sessions.createSession({ email: process.env.EMAIL, password: process.env.PWD
   api.dcard.getDcardStatus(message).then((res) => {
     console.log(res);
   });
-});
-
-/**
-* These functions are open API without login.
-* See asset/forumList.json to get forum alias
-*/
-const postOpt = {
-  forum: 'vehicle',
-  popular: false,
-  before: 225687456,
-};
-api.posts.listPost(postOpt).then((res) => {
-  console.log(res);
-});
-
-const postId = 225681815;
-const options = {};
-api.comments.listComments(postId, options).then((res) => {
-  console.log(res);
 });

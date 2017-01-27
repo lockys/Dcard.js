@@ -1,6 +1,5 @@
-doc/
-example/
+docs/
+examples/
 src/
 test/
 util/
-asset/

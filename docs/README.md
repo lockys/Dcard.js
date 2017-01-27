@@ -9,7 +9,7 @@ Get the profile of yourself.
 **Examples**
 
 ```javascript
-api.app.getMe().then((res) => {
+getMe().then((res) => {
  console.log(res);
 });
 ```
@@ -23,7 +23,7 @@ Get the pending fields.
 **Examples**
 
 ```javascript
-api.app.getPendingFields().then((res) => {
+getPendingFields().then((res) => {
  console.log(res);
 });
 ```
@@ -42,7 +42,7 @@ Update your profile.
 
 ```javascript
 const data = {...}; //key listed above could be used.
-api.app.updateMe(data).then((res) => {
+updateMe(data).then((res) => {
  console.log(res);
 });
 ```
@@ -64,7 +64,7 @@ Search posts by specified keyword.
 ```javascript
 const postId = 225688036;
 const options = {};
-api.comments.listComments(postId, options).then((res) => {
+listComments(postId, options).then((res) => {
   console.log(res);
 });
 ```
@@ -81,7 +81,7 @@ api.comments.listComments(postId, options).then((res) => {
 
 ```javascript
 const id = 225688036;
-api.darsys.listDarsysPosts(id).then((res) => {
+listDarsysPosts(id).then((res) => {
   console.log(res);
 });
 ```
@@ -93,7 +93,7 @@ Get today's Dcard.
 **Examples**
 
 ```javascript
-api.dcard.getDcard().then((res) => {
+getDcard().then((res) => {
  console.log(res);
 });
 ```
@@ -113,7 +113,7 @@ Send invitation to today's Dcard.
 
 ```javascript
 const message = { firstMessage: 'Hello!' };
-api.dcard.acceptDcard(message).then((res) => {
+acceptDcard(message).then((res) => {
   console.log(res);
 });
 ```
@@ -144,7 +144,7 @@ List Posts of a forum
 **Parameters**
 
 -   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
-    -   `options.forum` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** vehicle for instance, please refer to asset/forumList.json to get forum name.
+    -   `options.forum` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** vehicle for instance, please refer to docs/forumList.json to get forum name.
     -   `options.before` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** List posts before a post id
     -   `options.after` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** List posts after a post id
     -   `options.popular` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true | false
@@ -157,7 +157,7 @@ const options = {
   popular: false,
   before: 225687456,
 };
-api.posts.listPost(options).then((res) => {
+listPost(options).then((res) => {
   console.log(res);
 });
 ```
@@ -177,7 +177,7 @@ List your posts. login required.
 const options = {
   before: 225687456,
 };
-api.posts.listMyPost(options).then((res) => {
+listMyPost(options).then((res) => {
   console.log(res);
 });
 ```
@@ -197,7 +197,7 @@ List your subscriptions. login required.
 const options = {
   popular: true,
 };
-api.posts.listMySubscription(options).then((res) => {
+listMySubscription(options).then((res) => {
   console.log(res);
 });
 ```
@@ -216,7 +216,7 @@ Get content of a specified post id.
 ```javascript
 const postId = 225688036;
 const options = {};
-api.posts.getPost(postId, options).then((res) => {
+getPost(postId, options).then((res) => {
   console.log(res);
 });
 ```
@@ -236,7 +236,7 @@ Search posts by specified keyword.
 const options = {
   query: '愛情',
 };
-api.posts.searchPost(options).then((res) => {
+searchPost(options).then((res) => {
   console.log(res);
 });
 ```
@@ -254,7 +254,7 @@ Login to Dcard with email and password.
 **Examples**
 
 ```javascript
-api.sessions.createSession({ email: 'abc@example.com', password: 'Passw0rd' }).then((res) => {
+createSession({ email: 'abc@example.com', password: 'Passw0rd' }).then((res) => {
   console.log(res);
 });
 ```

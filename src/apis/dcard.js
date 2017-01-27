@@ -3,7 +3,7 @@ import { api, filterError, parseJSON } from '../request';
 /**
  * Get today's Dcard.
  * @example
- * api.dcard.getDcard().then((res) => {
+ * getDcard().then((res) => {
  *  console.log(res);
  * });
  * @returns {json}
@@ -21,7 +21,7 @@ export const getDcard = () => (
  * @returns {json}
  * @example
  * const message = { firstMessage: 'Hello!' };
- * api.dcard.acceptDcard(message).then((res) => {
+ * acceptDcard(message).then((res) => {
  *   console.log(res);
  * });
  */

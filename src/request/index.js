@@ -16,10 +16,8 @@ export const parseJSON = _parseJSON;
 const HOST = 'https://www.dcard.tw';
 
 /**
- * @ignore
- * Setup the fetch request options.
- *
  * @private
+ * Setup the fetch request options.
  */
 function setupRequestOptions(options: Object = {}): Object {
   const option = merge({
@@ -44,7 +42,7 @@ function setupRequestOptions(options: Object = {}): Object {
 }
 
 /**
- * @ignore
+ * @private
  * The Dcard api wrapper client for handling the csrf token and cookies.
  * Normally you won't be using this function directly.
  */
@@ -53,10 +51,8 @@ export const DcardClient = (csrfToken: string = '', cookie: string = ''): Object
   cookie,
 
   /**
-   * @ignore
-   * Update the client cookie.
-   *
    * @private
+   * Update the client cookie.
    */
   updateCookies(cookies: string): DcardClient {
     this.cookie = toPairs({
@@ -82,11 +78,9 @@ export const DcardClient = (csrfToken: string = '', cookie: string = ''): Object
   },
 
   /**
-   * @ignore
+   * @private
    * Initial the client by getting the first cookie and csrk token
    * after the first fetch to the server.
-   *
-   * @private
    */
   init: async function init(): Promise<DcardClient> {
     const res = await fetch(HOST);
@@ -107,14 +101,14 @@ export const DcardClient = (csrfToken: string = '', cookie: string = ''): Object
 });
 
 /**
- * @ignore
+ * @private
  * The default Dcard api client used implicitly.
  * Normally you won't be using this function directly.
  */
 export const DEFAULT_CLIENT: DcardClient = DcardClient();
 
 /**
- * @ignore
+ * @private
  * The api function that make call to the Dcard server.
  * Normally you won't be using this function directly.
  */

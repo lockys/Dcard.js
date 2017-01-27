@@ -5,7 +5,7 @@ import { api, filterError, parseJSON } from '../request';
 * @param {Number} id posd id
 * @example
 * const id = 225688036;
-* api.darsys.listDarsysPosts(id).then((res) => {
+* listDarsysPosts(id).then((res) => {
 *   console.log(res);
 * });
 */
