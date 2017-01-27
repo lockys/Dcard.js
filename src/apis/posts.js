@@ -6,7 +6,7 @@ import { listCollection } from './collections';
 /**
 * List Posts of a forum
 * @param {object} options
-* @param {String} options.forum vehicle for instance, please refer to asset/forumList.json to get forum name.
+* @param {String} options.forum vehicle for instance, please refer to docs/forumList.json to get forum name.
 * @param {String} options.before List posts before a post id
 * @param {String} options.after List posts after a post id
 * @param {Boolean} options.popular true | false
@@ -16,7 +16,7 @@ import { listCollection } from './collections';
 *   popular: false,
 *   before: 225687456,
 * };
-* api.posts.listPost(options).then((res) => {
+* listPost(options).then((res) => {
 *   console.log(res);
 * });
 */
@@ -62,7 +62,7 @@ export const listPost = (options) => {
 * const options = {
 *   before: 225687456,
 * };
-* api.posts.listMyPost(options).then((res) => {
+* listMyPost(options).then((res) => {
 *   console.log(res);
 * });
 */
@@ -80,7 +80,7 @@ export const listMyPost = options => (
 * const options = {
 *   popular: true,
 * };
-* api.posts.listMySubscription(options).then((res) => {
+* listMySubscription(options).then((res) => {
 *   console.log(res);
 * });
 */
@@ -97,7 +97,7 @@ export const listMySubscription = options => (
 * @example
 * const postId = 225688036;
 * const options = {};
-* api.posts.getPost(postId, options).then((res) => {
+* getPost(postId, options).then((res) => {
 *   console.log(res);
 * });
 */
@@ -231,7 +231,7 @@ export const reportPost = (id, data) => (
 * const options = {
 *   query: '愛情',
 * };
-* api.posts.searchPost(options).then((res) => {
+* searchPost(options).then((res) => {
 *   console.log(res);
 * });
 */

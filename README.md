@@ -26,15 +26,15 @@ import * as api from 'dcard';
 // es5
 var api = require('dcard');
 ```
-You can refer to [example](/example) for the simple example.
+You can refer to [example](/examples) for the simple example to get started quickly.
+
+Documentations
+==
+Check out the full [documentation page](/docs), but the doc is still in building.
 
 Contributions
 ==
 Feel free to pull request, open issues or give us suggestions to make this project better :-)
-
-Documentations
-==
-Check out the [documentation page](/doc), but the doc is still in building.
 
 Authors
 ==
@@ -46,7 +46,7 @@ LICENSE
 ==
 The MIT License (MIT)
 
-Copyright (c) 2016 Hao-Weo Jeng, Che-Wei Lin, Kai Hao
+Copyright (c) 2016 Hao-Wei Jeng, Che-Wei Lin, Kai Hao
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

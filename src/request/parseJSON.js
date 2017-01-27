@@ -1,8 +1,7 @@
 /* @flow */
 /**
- * Parse the response body to json.
- *
  * @private
+ * Parse the response body to json.
  */
 const parseJSON = (res: Response): Promise<Object> => res.json();
 

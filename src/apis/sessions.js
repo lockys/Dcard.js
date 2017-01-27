@@ -6,7 +6,7 @@ import { api, filterError } from '../request';
  * @param {String} email Your email for login
  * @param {String} password Your password for login
  * @example
- * api.sessions.createSession({ email: 'abc@example.com', password: 'Passw0rd' }).then((res) => {
+ * createSession({ email: 'abc@example.com', password: 'Passw0rd' }).then((res) => {
  *   console.log(res);
  * });
  */
