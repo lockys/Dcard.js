@@ -43,7 +43,7 @@ export const listPost = (options) => {
           } else if (post.pinned && post.department === 'dcardadangel') {
             angels.push(post);
           } else {
-            p = p.push(post);
+            p.push(post);
           }
 
           return p;
