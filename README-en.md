@@ -1,51 +1,49 @@
-# Dcard.js
-
+dcard.js
+==
 https://www.npmjs.com/package/dcard  
-`Dcard.js` 是一個給 `Node.js` 開發者的非官方 [Dcard](https://www.dcard.tw) 套件，本套件支援登入、取得文章、抽卡 ... 等功能
+`dcard.js` is a unofficial API wrapper of [Dcard](https://www.dcard.tw) for developer.  
+It supports login, get posts, get card of a account ...etc.
 
-# 安裝
-
-![npm info](https://nodei.co/npm/dcard.png?downloads=true)
+Installation
+==
+![npm info](https://nodei.co/npm/dcard.png?downloads=true)  
 
 ```
 $ npm install --save dcard
 ```
 
-# 開始使用
-
+Usage
+==
 ### Import
-
-您可以僅 import 您需要的功能或者 import 整個套件
-
+Import the method you need or import the whole package.
 ```js
-// es6 (建議)
-import { posts, dcard } from "dcard";
+// es6 (recommended)
+import { posts, dcard } from 'dcard';
 
-// or (import 所有 api)
-import * as api from "dcard";
+// or import them all
+import * as api from 'dcard';
 
 // es5
-var api = require("dcard");
+var api = require('dcard');
 ```
+You can refer to [example](/examples) for the simple example to get started quickly.
 
-你可以到 [example](/examples) 看一些簡單的使用範例 
-
-# 文件
-
+Documentations
+==
 Check out the full [documentation page](/docs), but the doc is still in building.
 
-# Contributions
-
+Contributions
+==
 Feel free to pull request, open issues or give us suggestions to make this project better :-)
 
-# Authors
+Authors
+==
+- [lockys](https://github.com/lockys)  
+- [John-Lin](https://github.com/John-Lin)
+- [Kai Hao](https://github.com/kevin940726)
 
-* [lockys](https://github.com/lockys)
-* [John-Lin](https://github.com/John-Lin)
-* [Kai Hao](https://github.com/kevin940726)
-
-# LICENSE
-
+LICENSE
+==
 The MIT License (MIT)
 
 Copyright (c) 2016 Hao-Wei Jeng, Che-Wei Lin, Kai Hao

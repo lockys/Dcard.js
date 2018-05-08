@@ -1,7 +1,7 @@
 {
   "name": "dcard",
   "version": "3.0.6",
-  "description": "Simple data retriever of Dcard for nodeJS",
+  "description": "👫 Unofficial Dcard API wrapper for Node.js developers.",
   "main": "lib/dcard.js",
   "scripts": {
     "test": "babel-node test/index.js",
@@ -9,11 +9,12 @@
     "test-build": "npm run build && npm test",
     "start": "babel-node src/dcard.js",
     "doc": "documentation serve src/dcard.js -w",
-    "build-doc": "documentation readme src/dcard.js --section=Introduction --readme-file=docs/README.md",
+    "build-doc":
+      "documentation readme src/dcard.js --section=Introduction --readme-file=docs/README.md",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "eslint src/ && flow"
   },
-  "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
+  "author": "Calvin Cheng <locky4567@gmail.com> (https://github.com/lockys)",
   "contributors": [
     {
       "name": "John Lin",
@@ -54,14 +55,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lockys/DcardJS.git"
+    "url": "https://github.com/lockys/Dcard.js.git"
   },
-  "keywords": [
-    "dcard",
-    "retriever"
-  ],
+  "keywords": ["dcard", "retriever"],
   "bugs": {
-    "url": "https://github.com/lockys/DcardJS/issues"
+    "url": "https://github.com/lockys/Dcard.js/issues"
   },
-  "homepage": "https://github.com/lockys/DcardJS"
+  "homepage": "https://github.com/lockys/Dcard.js"
 }
