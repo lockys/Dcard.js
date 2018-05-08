@@ -1,6 +1,6 @@
 {
   "name": "dcard",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "👫 Unofficial Dcard API wrapper for Node.js developers.",
   "main": "lib/dcard.js",
   "scripts": {
@@ -9,8 +9,7 @@
     "test-build": "npm run build && npm test",
     "start": "babel-node src/dcard.js",
     "doc": "documentation serve src/dcard.js -w",
-    "build-doc":
-      "documentation readme src/dcard.js --section=Introduction --readme-file=docs/README.md",
+    "build-doc": "documentation readme src/dcard.js --section=Introduction --readme-file=docs/README.md",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "eslint src/ && flow"
   },
@@ -57,7 +56,10 @@
     "type": "git",
     "url": "https://github.com/lockys/Dcard.js.git"
   },
-  "keywords": ["dcard", "retriever"],
+  "keywords": [
+    "dcard",
+    "retriever"
+  ],
   "bugs": {
     "url": "https://github.com/lockys/Dcard.js/issues"
   },
