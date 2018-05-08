@@ -3,6 +3,8 @@
 https://www.npmjs.com/package/dcard  
 `Dcard.js` 是一個給 `Node.js` 開發者的非官方 [Dcard](https://www.dcard.tw) 套件，本套件支援登入、取得文章、抽卡 ... 等功能
 
+[English README](README-en.md)
+
 # 安裝
 
 ![npm info](https://nodei.co/npm/dcard.png?downloads=true)
@@ -32,17 +34,18 @@ var api = require("dcard");
 
 # 文件
 
-Check out the full [documentation page](/docs), but the doc is still in building.
+[完整文件](/docs)  
+我們正在完善化我們的文件，如果您有興趣，歡迎加入  一同協作！
 
-# Contributions
+# 如何貢獻
 
-Feel free to pull request, open issues or give us suggestions to make this project better :-)
+歡迎大家  發 PR 或 Issues，讓本專案更加的完整好用 :)
 
-# Authors
+# 作者
 
-* [lockys](https://github.com/lockys)
-* [John-Lin](https://github.com/John-Lin)
-* [Kai Hao](https://github.com/kevin940726)
+* [Calvin Cheng](https://github.com/lockys) - 專案發起人
+* [John-Lin](https://github.com/John-Lin) - 專案發起人
+* [Kai Hao](https://github.com/kevin940726) - 感謝他改善了整體架構，讓專案功能更加完整
 
 # LICENSE
 
