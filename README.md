@@ -30,7 +30,7 @@ import * as api from "dcard";
 var api = require("dcard");
 ```
 
-你可以到 [example](/examples) 看一些簡單的使用範例 
+你可以到 [example](/examples) 看一些簡單的使用範例
 
 # 文件
 
