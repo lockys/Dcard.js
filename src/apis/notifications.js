@@ -48,3 +48,13 @@ export const getNotificationStatus = () => (
     .then(filterError)
     .then(parseJSON)
 );
+
+export const deleteNotification = id => (
+  api(`notifications/${id}`,
+    {
+      method: 'delete',
+    },
+  )
+    .then(filterError)
+    .then(() => ({ id }))
+);
