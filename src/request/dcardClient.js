@@ -35,7 +35,7 @@ export const DcardClient = (csrfToken : string = '', cookie : string = '') : Obj
    * after the first fetch to the server.
    */
   init: async function init(): Promise <DcardClient> {
-    const res = await fetch(`${HOST}${CSRFTokenUrl}`);
+    const res = await fetch(`${HOST}/${CSRFTokenUrl}`);
     const responseHeader = res.headers;
     const xcsrfToken = responseHeader.get('x-csrf-token');
 

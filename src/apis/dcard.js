@@ -1,5 +1,4 @@
 import { api, filterError, parseJSON } from '../request';
-import constants from '../request/constants';
 /**
  * Get today's Dcard.
  * @example
@@ -9,7 +8,7 @@ import constants from '../request/constants';
  * @returns {json}
  */
 export const getDcard = () => (
-  api(`${constants.apiV1}/dcard`)
+  api('dcard')
     .then(filterError)
     .then(parseJSON)
 );
@@ -26,7 +25,7 @@ export const getDcard = () => (
  * });
  */
 export const acceptDcard = firstMessageForm => (
-  api(`${constants.apiV1}/dcard/accept`,
+  api('dcard/accept',
     {
       method: 'post',
       body: firstMessageForm,
@@ -43,7 +42,7 @@ export const acceptDcard = firstMessageForm => (
  * @returns {json}
  */
 export const reportDcard = reportForm => (
-  api(`${constants.apiV1}/dcard/reports`,
+  api('dcard/reports',
     {
       method: 'post',
       body: reportForm,
@@ -59,7 +58,7 @@ export const reportDcard = reportForm => (
  * @returns {json}
  */
 export const getDcardStatus = () => (
-  api(`${constants.apiV1}/dcard/status`)
+  api('dcard/status')
     .then(filterError)
     .then(parseJSON)
 );
