@@ -1,6 +1,5 @@
 /* @flow */
 import { api, filterError } from '../request';
-import constants from '../request/constants';
 /**
  * Login to Dcard with email and password.
  * @param {String} email Your email for login

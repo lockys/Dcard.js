@@ -2,7 +2,6 @@ import { pick, omit } from 'lodash';
 import qs from 'qs';
 import { api, filterError, parseJSON } from '../request';
 import { listCollection } from './collections';
-import constants from '../request/constants';
 
 /**
 * List Posts of a forum
