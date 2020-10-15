@@ -41,7 +41,7 @@ function setupRequestOptions(options: Object = {}): Object {
  * The api function that make call to the Dcard server.
  * Normally you won't be using this function directly.
  */
-export async function api(url: string, options?: Object): Promise<*> {
+export async function api(url: string, options?: Object, customApiPrefix?: string): Promise<*> {
   let csrfToken = CLIENT.csrfToken || (await CLIENT.init()).csrfToken;
 
   const headers = {
@@ -49,8 +49,12 @@ export async function api(url: string, options?: Object): Promise<*> {
     'x-csrf-token': csrfToken,
   };
 
+  const fetchUrl = customApiPrefix ? `${HOST}/${customApiPrefix}/${url}` : `${HOST}/${constants.apiV1}/${url}`
+
+  console.log(fetchUrl);
+
   const res = await fetch(
-    `${HOST}/_api/${url}`,
+    fetchUrl,
     merge(
       setupRequestOptions(options),
       { headers },

@@ -1,5 +1,4 @@
 import { api, filterError, parseJSON } from '../request';
-
 /**
  * Get today's Dcard.
  * @example

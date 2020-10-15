@@ -1,4 +1,6 @@
 export default {
   host: 'https://www.dcard.tw',
-  ping: '/_api/_ping',
+  ping: 'service/_ping',
+  apiV1: 'service/api/v2',
+  apiV0: 'service'
 };

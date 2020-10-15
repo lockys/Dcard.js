@@ -1,6 +1,5 @@
 /* @flow */
 import { api, filterError } from '../request';
-
 /**
  * Login to Dcard with email and password.
  * @param {String} email Your email for login
@@ -19,6 +18,7 @@ export const createSession = (data: {
       method: 'POST',
       body: data,
     },
+    constants.apiV0
   )
   .then(filterError)
 );
