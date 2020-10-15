@@ -1,14 +1,13 @@
 # Dcard.js
 
 https://www.npmjs.com/package/dcard  
-`Dcard.js` 是一個給 `Node.js` 開發者的非官方 [Dcard](https://www.dcard.tw) 套件，本套件支援登入、取得文章、抽卡 ... 等功能
+`Dcard.js` 是一個給 `Node.js` 開發者的非官方 [Dcard](https://www.dcard.tw) 套件，本套件支援登入、取得文章、抽卡 ... 等諸多功能
 
 [English README](README-en.md)
 
 # 安裝
 
-![npm info](https://nodei.co/npm/dcard.png?downloads=true)
-
+[![npm version](https://badge.fury.io/js/dcard.svg)](https://badge.fury.io/js/dcard)
 ```
 $ npm install --save dcard
 ```
@@ -51,7 +50,7 @@ var api = require("dcard");
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Hao-Wei Jeng, Che-Wei Lin, Kai Hao
+Copyright (c) 2020 Hao-Wei Jeng, Che-Wei Lin, Kai Hao
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
