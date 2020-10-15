@@ -7,7 +7,7 @@
     "test": "babel-node test/index.js",
     "build": "babel src -d lib",
     "test-build": "npm run build && npm test",
-    "start": "babel-node src/dcard.js",
+    "start": "babel-node examples/login.js",
     "doc": "documentation serve src/dcard.js -w",
     "build-doc": "documentation readme src/dcard.js --section=Introduction --readme-file=docs/README.md",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",

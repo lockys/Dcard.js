@@ -1,5 +1,6 @@
 /* @flow */
 import { api, filterError } from '../request';
+import constants from '../request/constants';
 
 /**
  * Login to Dcard with email and password.
@@ -14,7 +15,7 @@ export const createSession = (data: {
   email: string,
   password: string,
 }): Promise<Object> => (
-  api('sessions',
+  api(`${constants.apiV0}/sessions`,
     {
       method: 'POST',
       body: data,

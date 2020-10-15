@@ -50,7 +50,7 @@ export async function api(url: string, options?: Object): Promise<*> {
   };
 
   const res = await fetch(
-    `${HOST}/_api/${url}`,
+    `${HOST}${url}`,
     merge(
       setupRequestOptions(options),
       { headers },
