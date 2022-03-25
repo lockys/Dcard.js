@@ -40,6 +40,16 @@ export const DcardClient = (
    * after the first fetch to the server.
    */
   init: async function init(): Promise<DcardClient> {
+    const res = await fetch(`${HOST}/${CSRFTokenUrl}`);
+    const responseHeader = res.headers;
+    const xcsrfToken = responseHeader.get('x-csrf-token');
+
+    if (!xcsrfToken) {
+      throw new Error('No CSRF Token found!');
+    }
+
+    this.updateCookies(res.headers.getAll('set-cookie').join(';'));
+
     return this;
   },
 });
