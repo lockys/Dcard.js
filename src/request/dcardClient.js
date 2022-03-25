@@ -48,6 +48,7 @@ export const DcardClient = (
       throw new Error('No CSRF Token found!');
     }
 
+    this.updateCSRFToken(xcsrfToken);
     this.updateCookies(res.headers.getAll('set-cookie').join(';'));
 
     return this;
