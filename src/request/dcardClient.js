@@ -41,8 +41,8 @@ export const DcardClient = (
    */
   init: async function init(): Promise<DcardClient> {
     const res = await fetch(`${HOST}/${CSRFTokenUrl}`);
-    const responseHeader = res.headers._headers;
-    const xcsrfToken = responseHeader['x-csrf-token'][0];
+    const responseHeader = res.headers;
+    const xcsrfToken = responseHeader.get('x-csrf-token');
 
     if (!xcsrfToken) {
       throw new Error('No CSRF Token found!');
