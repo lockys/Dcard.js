@@ -1,6 +1,6 @@
 {
   "name": "dcard",
-  "version": "3.0.17",
+  "version": "3.0.18",
   "description": "👫 Unofficial Dcard API wrapper for Node.js developers.",
   "main": "lib/dcard.js",
   "scripts": {
