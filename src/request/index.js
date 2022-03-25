@@ -51,8 +51,6 @@ export async function api(url: string, options?: Object, customApiPrefix?: strin
 
   const fetchUrl = customApiPrefix ? `${HOST}/${customApiPrefix}/${url}` : `${HOST}/${constants.apiV1}/${url}`
 
-  console.log(fetchUrl);
-
   const res = await fetch(
     fetchUrl,
     merge(
